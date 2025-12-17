@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Custom Theme Variables */
+:root {
+    --color-primary: #DC2626;
+    --color-primary-light: #FEE2E2;
+    --color-primary-dark: #991B1B;
+    --color-background: #FFFFFF;
+    --color-background-alt: #F7F7FB;
+    --color-text-primary: #111827;
+    --color-text-secondary: #374151;
+    --color-text-muted: #6B7280;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Glass effect utility */
+.glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Red glow effect */
+.glow-red {
+    box-shadow: 0 0 60px rgba(220, 38, 38, 0.15);
+}
+
+/* Gradient text */
+.text-gradient-red {
+    background: linear-gradient(135deg, #DC2626 0%, #F87171 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
