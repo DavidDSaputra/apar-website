@@ -4,7 +4,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Home, MessageCircle, ImageIcon } from 'lucide-react';
 import { Link, Head } from '@inertiajs/react';
 
+import { useState } from 'react';
+
 export default function Show({ product }) {
+    const [activeImage, setActiveImage] = useState(product.gambar_utama);
     return (
         <div className="min-h-screen bg-white font-sans">
             <Head title={`${product.nama_produk} - APAR Berkualitas`} />
@@ -31,21 +34,37 @@ export default function Show({ product }) {
                         {/* Gallery Section */}
                         <div className="w-full lg:w-1/2 space-y-6">
                             <div className="aspect-square bg-gray-50 rounded-[2.5rem] overflow-hidden shadow-inner flex items-center justify-center p-8">
-                                {product.gambar_utama ? (
+                                {activeImage ? (
                                     <img
-                                        src={`/storage/${product.gambar_utama}`}
+                                        src={`/storage/${activeImage}`}
                                         alt={product.nama_produk}
-                                        className="max-w-full max-h-full object-contain"
+                                        className="max-w-full max-h-full object-contain transition-all duration-500"
                                     />
                                 ) : (
                                     <ImageIcon size={100} className="text-gray-200" />
                                 )}
                             </div>
 
-                            {product.gambar && product.gambar.length > 0 && (
+                            {((product.gambar && product.gambar.length > 0) || product.gambar_utama) && (
                                 <div className="grid grid-cols-4 sm:grid-cols-5 gap-4">
+                                    {/* Main Image Thumbnail */}
+                                    <div
+                                        onClick={() => setActiveImage(product.gambar_utama)}
+                                        className={`aspect-square bg-gray-50 rounded-2xl p-2 border-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${activeImage === product.gambar_utama ? 'border-red-600' : 'border-gray-100'}`}
+                                    >
+                                        <img
+                                            src={`/storage/${product.gambar_utama}`}
+                                            alt={product.nama_produk}
+                                            className="w-full h-full object-cover rounded-lg"
+                                        />
+                                    </div>
+
                                     {product.gambar.map((img, i) => (
-                                        <div key={i} className="aspect-square bg-gray-50 rounded-2xl p-2 border border-gray-100 flex items-center justify-center overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer">
+                                        <div
+                                            key={i}
+                                            onClick={() => setActiveImage(img.nama_file)}
+                                            className={`aspect-square bg-gray-50 rounded-2xl p-2 border-2 flex items-center justify-center overflow-hidden transition-all cursor-pointer ${activeImage === img.nama_file ? 'border-red-600' : 'border-gray-100'}`}
+                                        >
                                             <img
                                                 src={`/storage/${img.nama_file}`}
                                                 alt={img.alt_text}

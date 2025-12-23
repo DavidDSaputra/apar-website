@@ -6,6 +6,12 @@ export default function ProductGrid({ dynamicProducts = [] }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [activeImage, setActiveImage] = useState(null);
+
+    const handleOpenModal = (product) => {
+        setSelectedProduct(product);
+        setActiveImage(product.gambar_utama);
+    };
 
     return (
         <section id="produk" className="py-24 bg-gray-50/50">
@@ -131,29 +137,42 @@ export default function ProductGrid({ dynamicProducts = [] }) {
                             {/* Modal Gallery */}
                             <div className="w-full lg:w-3/5 bg-gray-50 p-8 flex flex-col">
                                 <div className="flex-1 flex items-center justify-center bg-white rounded-3xl overflow-hidden shadow-inner p-4 min-h-[300px]">
-                                    {selectedProduct.gambar_utama ? (
+                                    {activeImage ? (
                                         <img
-                                            src={`/storage/${selectedProduct.gambar_utama}`}
+                                            src={`/storage/${activeImage}`}
                                             alt={selectedProduct.nama_produk}
-                                            className="max-w-full max-h-full object-contain"
+                                            className="max-w-full max-h-full object-contain transition-all duration-500"
                                         />
                                     ) : (
                                         <ImageIcon size={100} className="text-gray-200" />
                                     )}
                                 </div>
-                                {selectedProduct.gambar && selectedProduct.gambar.length > 0 && (
-                                    <div className="grid grid-cols-4 sm:grid-cols-6 gap-3 mt-6 overflow-x-auto pb-2">
-                                        {selectedProduct.gambar.map((img, i) => (
-                                            <div key={i} className="aspect-square bg-white rounded-xl shadow-sm border border-gray-100 p-1 flex-shrink-0">
-                                                <img
-                                                    src={`/storage/${img.nama_file}`}
-                                                    alt={img.alt_text}
-                                                    className="w-full h-full object-cover rounded-lg"
-                                                />
-                                            </div>
-                                        ))}
+                                <div className="grid grid-cols-4 sm:grid-cols-6 gap-3 mt-6 overflow-x-auto pb-2">
+                                    {/* Featured Image as Thumbnail */}
+                                    <div
+                                        onClick={() => setActiveImage(selectedProduct.gambar_utama)}
+                                        className={`aspect-square bg-white rounded-xl shadow-sm border-2 p-1 flex-shrink-0 cursor-pointer transition-all hover:scale-105 ${activeImage === selectedProduct.gambar_utama ? 'border-red-600 shadow-red-100' : 'border-gray-100'}`}
+                                    >
+                                        <img
+                                            src={`/storage/${selectedProduct.gambar_utama}`}
+                                            alt={selectedProduct.nama_produk}
+                                            className="w-full h-full object-cover rounded-lg"
+                                        />
                                     </div>
-                                )}
+                                    {selectedProduct.gambar.map((img, i) => (
+                                        <div
+                                            key={i}
+                                            onClick={() => setActiveImage(img.nama_file)}
+                                            className={`aspect-square bg-white rounded-xl shadow-sm border-2 p-1 flex-shrink-0 cursor-pointer transition-all hover:scale-105 ${activeImage === img.nama_file ? 'border-red-600 shadow-red-100' : 'border-gray-100'}`}
+                                        >
+                                            <img
+                                                src={`/storage/${img.nama_file}`}
+                                                alt={img.alt_text}
+                                                className="w-full h-full object-cover rounded-lg"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Modal Content */}
