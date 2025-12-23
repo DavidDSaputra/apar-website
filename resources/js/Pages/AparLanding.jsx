@@ -6,7 +6,6 @@ import ProductGrid from '@/Components/Apar/ProductGrid';
 import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import VideoDemo from '@/Components/Apar/VideoDemo';
-import HowItWorks from '@/Components/Apar/HowItWorks';
 import Testimonials from '@/Components/Apar/Testimonials';
 import BlogPreview from '@/Components/Apar/BlogPreview';
 import FAQ from '@/Components/Apar/FAQ';
@@ -39,7 +38,6 @@ export default function AparLanding({ products }) {
                 </div>
 
                 <VideoDemo />
-                <HowItWorks />
                 <Testimonials />
                 <BlogPreview />
                 <FAQ />
