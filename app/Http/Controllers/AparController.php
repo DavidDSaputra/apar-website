@@ -18,10 +18,13 @@ class AparController extends Controller
             }
         ])->inRandomOrder()->take(3)->get();
 
+        $footerProducts = Produk::inRandomOrder()->take(6)->get();
+
         $testimonis = Testimoni::latest()->get();
 
         return Inertia::render('AparLanding', [
             'products' => $products,
+            'footerProducts' => $footerProducts,
             'testimonis' => $testimonis
         ]);
     }

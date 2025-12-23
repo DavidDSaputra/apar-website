@@ -20,7 +20,7 @@ const productLinks = [
     { name: 'Thermatic & Metronic', href: '#produk' },
 ];
 
-export default function Footer() {
+export default function Footer({ products = [] }) {
     const handleSmoothScroll = (e, href) => {
         e.preventDefault();
         const target = document.querySelector(href);
@@ -29,12 +29,17 @@ export default function Footer() {
         }
     };
 
+    // Use dynamic products if available, otherwise fallback to static ones
+    const displayProducts = products.length > 0
+        ? products.map(p => ({ name: p.nama_produk, href: '#produk' }))
+        : productLinks;
+
     return (
         <footer className="bg-gray-900 text-white">
             {/* Main Footer */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {/* Company Info */}
+
                     <div>
                         <Link href="/" className="flex items-center gap-2 mb-6 group">
                             <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -95,8 +100,8 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-6">Produk SERVVO</h4>
                         <ul className="space-y-3">
-                            {productLinks.map((link) => (
-                                <li key={link.name}>
+                            {displayProducts.map((link, index) => (
+                                <li key={`${link.name}-${index}`}>
                                     <a
                                         href={link.href}
                                         onClick={(e) => handleSmoothScroll(e, link.href)}

@@ -11,7 +11,7 @@ import FAQ from '@/Components/Apar/FAQ';
 import Footer from '@/Components/Apar/Footer';
 import LoadingScreen from '@/Components/Apar/LoadingScreen';
 
-export default function AparLanding({ products, testimonis }) {
+export default function AparLanding({ products, footerProducts, testimonis }) {
     return (
         <div className="min-h-screen bg-white font-sans">
             <LoadingScreen />
@@ -40,7 +40,7 @@ export default function AparLanding({ products, testimonis }) {
                 <BlogPreview />
                 <FAQ />
             </main>
-            <Footer />
+            <Footer products={footerProducts} />
         </div>
     );
 }
