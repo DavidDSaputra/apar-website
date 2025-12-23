@@ -1,16 +1,14 @@
-import Navbar from '@/Components/Apar/Navbar';
-import Footer from '@/Components/Apar/Footer';
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, Calendar, User, Eye, ArrowRight } from 'lucide-react';
 import { Link, Head } from '@inertiajs/react';
+import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function Index({ posts }) {
     return (
-        <div className="min-h-screen bg-gray-50 font-sans">
+        <GuestLayout>
             <Head title="Blog & Artikel - APAR Bersertifikat" />
-            <Navbar />
 
-            <main className="pt-24 pb-20">
+            <div className="pt-24 pb-20">
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
@@ -118,8 +116,8 @@ export default function Index({ posts }) {
                                         key={i}
                                         href={`/blog?page=${i + 1}`}
                                         className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all ${posts.current_page === i + 1
-                                                ? 'bg-red-600 text-white shadow-lg shadow-red-200'
-                                                : 'bg-white text-gray-600 hover:bg-gray-100'
+                                            ? 'bg-red-600 text-white shadow-lg shadow-red-200'
+                                            : 'bg-white text-gray-600 hover:bg-gray-100'
                                             }`}
                                     >
                                         {i + 1}
@@ -129,9 +127,7 @@ export default function Index({ posts }) {
                         </div>
                     )}
                 </div>
-            </main>
-
-            <Footer />
-        </div>
+            </div>
+        </GuestLayout>
     );
 }

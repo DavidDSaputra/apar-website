@@ -1,19 +1,17 @@
-import Navbar from '@/Components/Apar/Navbar';
-import Footer from '@/Components/Apar/Footer';
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, MessageCircle, ImageIcon } from 'lucide-react';
 import { Link, Head } from '@inertiajs/react';
+import GuestLayout from '@/Layouts/GuestLayout';
 
 import { useState } from 'react';
 
 export default function Show({ product }) {
     const [activeImage, setActiveImage] = useState(product.gambar_utama);
     return (
-        <div className="min-h-screen bg-white font-sans">
+        <GuestLayout>
             <Head title={`${product.nama_produk} - APAR Berkualitas`} />
-            <Navbar />
 
-            <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+            <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
@@ -114,9 +112,7 @@ export default function Show({ product }) {
                         </div>
                     </div>
                 </div>
-            </main>
-
-            <Footer />
-        </div>
+            </div>
+        </GuestLayout>
     );
 }

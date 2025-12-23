@@ -1,16 +1,13 @@
-import Navbar from '@/Components/Apar/Navbar';
 import ProductGrid from '@/Components/Apar/ProductGrid';
-import Footer from '@/Components/Apar/Footer';
 import { motion } from 'framer-motion';
 import { ChevronRight, Home } from 'lucide-react';
 import { Link } from '@inertiajs/react';
+import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function Index({ products }) {
     return (
-        <div className="min-h-screen bg-gray-50 font-sans">
-            <Navbar />
-
-            <main className="pt-24 pb-20">
+        <GuestLayout>
+            <div className="pt-24 pb-20">
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
@@ -42,9 +39,7 @@ export default function Index({ products }) {
                 <div className="relative">
                     <ProductGrid dynamicProducts={products} />
                 </div>
-            </main>
-
-            <Footer />
-        </div>
+            </div>
+        </GuestLayout>
     );
 }

@@ -24,7 +24,6 @@ class AparController extends Controller
 
         return Inertia::render('AparLanding', [
             'products' => $products,
-            'footerProducts' => $footerProducts,
             'testimonis' => $testimonis
         ]);
     }

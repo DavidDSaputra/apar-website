@@ -1,8 +1,7 @@
-import Navbar from '@/Components/Apar/Navbar';
-import Footer from '@/Components/Apar/Footer';
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, Calendar, User, Eye, ArrowLeft, Share2 } from 'lucide-react';
 import { Link, Head } from '@inertiajs/react';
+import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function Show({ post, related }) {
     const formattedDate = new Date(post.created_at).toLocaleDateString('id-ID', {
@@ -12,15 +11,14 @@ export default function Show({ post, related }) {
     });
 
     return (
-        <div className="min-h-screen bg-white font-sans">
+        <GuestLayout>
             <Head>
                 <title>{post.meta_title || post.judul}</title>
                 <meta name="description" content={post.meta_description} />
                 <meta name="keywords" content={post.meta_keywords} />
             </Head>
-            <Navbar />
 
-            <main className="pt-24 pb-20">
+            <div className="pt-24 pb-20">
                 {/* Breadcrumbs */}
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
@@ -155,9 +153,7 @@ export default function Show({ post, related }) {
                         </div>
                     </div>
                 )}
-            </main>
-
-            <Footer />
-        </div>
+            </div>
+        </GuestLayout>
     );
 }
