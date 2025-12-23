@@ -17,7 +17,6 @@ class ActivityLogController extends Controller
         $logs = ActivityLog::with('user')
             ->when($request->search, function ($query) use ($request) {
                 $query->where('action', 'like', "%{$request->search}%")
-                    ->orWhere('model_type', 'like', "%{$request->search}%")
                     ->orWhere('table_name', 'like', "%{$request->search}%")
                     ->orWhereHas('user', function ($q) use ($request) {
                         $q->where('nama_lengkap', 'like', "%{$request->search}%")

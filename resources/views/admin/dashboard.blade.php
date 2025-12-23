@@ -171,7 +171,7 @@
                          <p class="text-sm theme-text-primary">
                             <span class="font-medium text-blue-400">{{ $activity->user->nama_lengkap ?? 'System' }}</span>
                             <span class="theme-text-secondary">{{ $activity->action }}</span>
-                            <span class="font-medium text-blue-400">{{ $activity->model_type }}</span>
+                            <span class="font-medium text-blue-400">{{ $activity->table_name }}</span>
                         </p>
                         <p class="text-xs theme-text-secondary mt-1">{{ $activity->created_at->diffForHumans() }}</p>
                     </div>
