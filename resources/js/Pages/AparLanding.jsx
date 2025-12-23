@@ -5,7 +5,6 @@ import ProblemSolution from '@/Components/Apar/ProblemSolution';
 import ProductGrid from '@/Components/Apar/ProductGrid';
 import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import ProductComparison from '@/Components/Apar/ProductComparison';
 import AparCalculator from '@/Components/Apar/AparCalculator';
 import Gallery from '@/Components/Apar/Gallery';
 import VideoDemo from '@/Components/Apar/VideoDemo';
@@ -42,7 +41,6 @@ export default function AparLanding({ products }) {
                     </div>
                 </div>
 
-                <ProductComparison />
                 <AparCalculator />
                 <Gallery />
                 <VideoDemo />
