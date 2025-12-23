@@ -2,84 +2,42 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
-const testimonials = [
-    {
-        id: 1,
-        name: 'Budi Santoso',
-        role: 'HSE Officer',
-        company: 'PT. Maju Bersama',
-        image: null,
-        rating: 5,
-        text: 'Layanan sangat profesional dan responsif. APAR yang dikirim berkualitas tinggi dengan sertifikat lengkap. Tim instalasi juga sangat membantu dalam penempatan yang tepat.',
-    },
-    {
-        id: 2,
-        name: 'Siti Rahayu',
-        role: 'Owner',
-        company: 'Restoran Sedap Rasa',
-        image: null,
-        rating: 5,
-        text: 'Awalnya bingung pilih jenis APAR untuk dapur restoran. Setelah konsultasi, tim memberikan rekomendasi yang tepat. Sekarang lebih tenang soal keamanan!',
-    },
-    {
-        id: 3,
-        name: 'Ahmad Wijaya',
-        role: 'Admin Gedung',
-        company: 'Graha Mandiri',
-        image: null,
-        rating: 5,
-        text: 'Sudah 3 tahun langganan untuk kebutuhan APAR 5 lantai gedung. Pelayanan konsisten, harga kompetitif, dan selalu diingatkan jadwal refill. Highly recommended!',
-    },
-    {
-        id: 4,
-        name: 'Diana Kusuma',
-        role: 'Procurement',
-        company: 'CV. Karya Utama',
-        image: null,
-        rating: 5,
-        text: 'Proses pengadaan sangat mudah, bisa invoice dan PO. Dokumen lengkap untuk audit K3. Produk sesuai spesifikasi yang dijanjikan.',
-    },
-    {
-        id: 5,
-        name: 'Rudi Hermawan',
-        role: 'Factory Manager',
-        company: 'PT. Industri Prima',
-        image: null,
-        rating: 5,
-        text: 'Training penggunaan APAR untuk karyawan sangat bermanfaat. Tim trainer profesional dan materi mudah dipahami. Karyawan jadi lebih siap menghadapi situasi darurat.',
-    },
-    {
-        id: 6,
-        name: 'Lisa Permata',
-        role: 'Event Organizer',
-        company: 'Prima Event',
-        image: null,
-        rating: 5,
-        text: 'Sewa APAR untuk event besar sangat praktis. Pengiriman tepat waktu dan kondisi APAR prima. Definitely akan pakai lagi untuk event berikutnya.',
-    },
-];
+export default function Testimonials({ testimonis }) {
+    // If no data from database, don't render the section
+    if (!testimonis || testimonis.length === 0) return null;
 
-export default function Testimonials() {
+    const activeTestimonials = testimonis.map(t => ({
+        id: t.id,
+        name: t.nama,
+        role: t.pekerjaan,
+        company: '', // Optional in DB, kept for layout consistency
+        image: t.foto,
+        rating: t.rating || 5,
+        text: t.isi
+    }));
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
-    const maxIndex = testimonials.length - 1;
+    const maxIndex = activeTestimonials.length - 1;
 
     useEffect(() => {
-        if (!isAutoPlaying) return;
+        if (!isAutoPlaying || maxIndex <= 0) return;
         const interval = setInterval(() => {
             nextSlide();
         }, 6000);
         return () => clearInterval(interval);
-    }, [isAutoPlaying, currentIndex]);
+    }, [isAutoPlaying, currentIndex, maxIndex]);
 
     const nextSlide = () => {
+        if (maxIndex <= 0) return;
         setDirection(1);
         setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     };
 
     const prevSlide = () => {
+        if (maxIndex <= 0) return;
         setDirection(-1);
         setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
     };
@@ -151,23 +109,23 @@ export default function Testimonials() {
                                 <Quote className="absolute top-8 left-8 text-red-50 w-20 h-20 md:w-24 md:h-24 -z-10 group-hover:scale-110 transition-transform duration-500" />
 
                                 <div className="flex gap-1 mb-4 md:mb-6">
-                                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                                    {[...Array(activeTestimonials[currentIndex].rating)].map((_, i) => (
                                         <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
                                     ))}
                                 </div>
 
                                 <blockquote className="text-lg md:text-2xl font-semibold text-gray-800 italic leading-relaxed mb-6 md:mb-8">
-                                    "{testimonials[currentIndex].text}"
+                                    "{activeTestimonials[currentIndex].text}"
                                 </blockquote>
 
                                 <div className="flex flex-col items-center mt-auto">
                                     <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-red-600 to-red-500 rounded-2xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-xl shadow-red-200 mb-3 md:mb-4 transform group-hover:rotate-6 transition-transform">
-                                        {testimonials[currentIndex].name.charAt(0)}
+                                        {activeTestimonials[currentIndex].name.charAt(0)}
                                     </div>
                                     <div>
-                                        <h4 className="text-lg md:text-xl font-bold text-gray-900">{testimonials[currentIndex].name}</h4>
+                                        <h4 className="text-lg md:text-xl font-bold text-gray-900">{activeTestimonials[currentIndex].name}</h4>
                                         <p className="text-[10px] md:text-sm font-medium text-gray-500 uppercase tracking-widest">
-                                            {testimonials[currentIndex].role} — <span className="text-red-600">{testimonials[currentIndex].company}</span>
+                                            {activeTestimonials[currentIndex].role} {activeTestimonials[currentIndex].company && `— `}<span className="text-red-600">{activeTestimonials[currentIndex].company}</span>
                                         </p>
                                     </div>
                                 </div>
@@ -198,7 +156,7 @@ export default function Testimonials() {
 
                 {/* Progress Indicators */}
                 <div className="flex justify-center gap-3 mt-16">
-                    {testimonials.map((_, i) => (
+                    {activeTestimonials.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => {

@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 
 use App\Models\Produk;
+use App\Models\Testimoni;
 
 class AparController extends Controller
 {
@@ -17,8 +18,11 @@ class AparController extends Controller
             }
         ])->inRandomOrder()->take(3)->get();
 
+        $testimonis = Testimoni::latest()->get();
+
         return Inertia::render('AparLanding', [
-            'products' => $products
+            'products' => $products,
+            'testimonis' => $testimonis
         ]);
     }
 
