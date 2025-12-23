@@ -3,12 +3,12 @@ import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, MessageCircle
 import { Link } from '@inertiajs/react';
 
 const quickLinks = [
-    { name: 'Produk', href: '#produk' },
-    { name: 'Layanan', href: '#layanan' },
-    { name: 'Sertifikasi', href: '#sertifikasi' },
-    { name: 'Testimoni', href: '#testimoni' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Kontak', href: '#kontak' },
+    { name: 'Home', href: '/', isAnchor: false },
+    { name: 'Products', href: '/produk', isAnchor: false },
+    { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
+    { name: 'FAQ', href: '/#faq', isAnchor: true },
+    { name: 'Blog', href: '/blog', isAnchor: false },
+    { name: 'Kontak', href: '/kontak', isAnchor: false },
 ];
 
 const productLinks = [
@@ -21,10 +21,14 @@ const productLinks = [
 ];
 
 export default function Footer({ products = [] }) {
-    const handleSmoothScroll = (e, href) => {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
+    const handleSmoothScroll = (e, item) => {
+        if (!item.isAnchor) return;
+
+        const anchor = item.href.split('#')[1];
+        const target = document.getElementById(anchor);
+
+        if (window.location.pathname === '/' && target) {
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
         }
     };
@@ -84,13 +88,13 @@ export default function Footer({ products = [] }) {
                         <ul className="space-y-3">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
+                                    <Link
                                         href={link.href}
-                                        onClick={(e) => handleSmoothScroll(e, link.href)}
+                                        onClick={(e) => handleSmoothScroll(e, link)}
                                         className="text-gray-400 hover:text-white transition-colors"
                                     >
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -104,7 +108,7 @@ export default function Footer({ products = [] }) {
                                 <li key={`${link.name}-${index}`}>
                                     <a
                                         href={link.href}
-                                        onClick={(e) => handleSmoothScroll(e, link.href)}
+                                        onClick={(e) => handleSmoothScroll(e, { ...link, isAnchor: true })}
                                         className="text-gray-400 hover:text-white transition-colors"
                                     >
                                         {link.name}
