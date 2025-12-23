@@ -84,7 +84,7 @@ ${formData.pesan}`;
                             Hubungi Kami
                         </span>
                         <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
-                            Siap Lindungi Bisnis Anda?
+                            Pastikan Keamanan dari Bahaya Kebakaran?
                         </h2>
                         <p className="text-lg text-gray-600 mb-10 leading-relaxed">
                             Punya pertanyaan? Hubungi langsung via WhatsApp untuk konsultasi cepat dengan tim ahli kami.
