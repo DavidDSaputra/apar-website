@@ -16,6 +16,7 @@ import Testimonials from '@/Components/Apar/Testimonials';
 import BlogPreview from '@/Components/Apar/BlogPreview';
 import FAQ from '@/Components/Apar/FAQ';
 import LeadForm from '@/Components/Apar/LeadForm';
+import MapBox from '@/Components/Apar/MapBox';
 import Footer from '@/Components/Apar/Footer';
 import LoadingScreen from '@/Components/Apar/LoadingScreen';
 
@@ -56,6 +57,7 @@ export default function AparLanding({ products }) {
                 <FAQ />
                 <LeadForm />
             </main>
+            <MapBox />
             <Footer />
         </div>
     );
