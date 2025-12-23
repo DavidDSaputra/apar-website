@@ -11,6 +11,14 @@ class AparController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('AparLanding');
+        $products = Produk::with([
+            'gambar' => function ($query) {
+                $query->orderBy('urutan', 'asc');
+            }
+        ])->inRandomOrder()->take(3)->get();
+
+        return Inertia::render('AparLanding', [
+            'products' => $products
+        ]);
     }
 }
