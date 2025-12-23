@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 const menuItems = [
-    { name: 'Produk', href: '#produk' },
-    { name: 'Layanan', href: '#layanan' },
-    { name: 'Sertifikasi', href: '#sertifikasi' },
-    { name: 'Testimoni', href: '#testimoni' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Kontak', href: '#kontak' },
+    { name: 'Produk', href: '/produk', isAnchor: false },
+    { name: 'Layanan', href: '/#layanan', isAnchor: true },
+    { name: 'Sertifikasi', href: '/#sertifikasi', isAnchor: true },
+    { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
+    { name: 'FAQ', href: '/#faq', isAnchor: true },
+    { name: 'Kontak', href: '/#kontak', isAnchor: true },
 ];
 
 export default function Navbar() {
@@ -23,13 +24,17 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleSmoothScroll = (e, href) => {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
+    const handleSmoothScroll = (e, item) => {
+        if (!item.isAnchor) return;
+
+        const anchor = item.href.split('#')[1];
+        const target = document.getElementById(anchor);
+
+        if (window.location.pathname === '/' && target) {
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
+            setIsMobileMenuOpen(false);
         }
-        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -64,15 +69,14 @@ export default function Navbar() {
                     {/* Desktop Menu */}
                     <div className="hidden lg:flex items-center gap-8">
                         {menuItems.map((item) => (
-                            <motion.a
+                            <Link
                                 key={item.name}
                                 href={item.href}
-                                onClick={(e) => handleSmoothScroll(e, item.href)}
+                                onClick={(e) => handleSmoothScroll(e, item)}
                                 className="text-gray-600 hover:text-red-600 font-medium transition-colors"
-                                whileHover={{ y: -2 }}
                             >
                                 {item.name}
-                            </motion.a>
+                            </Link>
                         ))}
                     </div>
 
@@ -120,14 +124,14 @@ export default function Navbar() {
                 >
                     <div className="py-4 space-y-3">
                         {menuItems.map((item) => (
-                            <a
+                            <Link
                                 key={item.name}
                                 href={item.href}
-                                onClick={(e) => handleSmoothScroll(e, item.href)}
+                                onClick={(e) => handleSmoothScroll(e, item)}
                                 className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg font-medium transition-colors"
                             >
                                 {item.name}
-                            </a>
+                            </Link>
                         ))}
                         <div className="pt-3 border-t border-gray-100">
                             <a

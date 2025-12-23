@@ -11,9 +11,6 @@ class AparController extends Controller
 {
     public function index(): Response
     {
-        $products = Produk::with('gambar')->get();
-        return Inertia::render('AparLanding', [
-            'products' => $products
-        ]);
+        return Inertia::render('AparLanding');
     }
 }

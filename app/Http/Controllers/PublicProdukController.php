@@ -13,9 +13,11 @@ class PublicProdukController extends Controller
             'gambar' => function ($query) {
                 $query->orderBy('urutan', 'asc');
             }
-        ])->latest()->paginate(9);
+        ])->latest()->get();
 
-        return view('landing.produk.index', compact('products'));
+        return \Inertia\Inertia::render('Products/Index', [
+            'products' => $products
+        ]);
     }
 
     public function show($slug)
@@ -26,16 +28,8 @@ class PublicProdukController extends Controller
             }
         ])->where('slug', $slug)->firstOrFail();
 
-        $relatedProducts = Produk::where('id', '!=', $product->id)
-            ->with([
-                'gambar' => function ($query) {
-                    $query->orderBy('urutan', 'asc');
-                }
-            ])
-            ->inRandomOrder()
-            ->take(3)
-            ->get();
-
-        return view('landing.produk.show', compact('product', 'relatedProducts'));
+        return \Inertia\Inertia::render('Products/Show', [
+            'product' => $product
+        ]);
     }
 }
