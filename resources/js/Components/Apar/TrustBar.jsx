@@ -128,25 +128,6 @@ export default function TrustBar() {
                     ))}
                 </motion.div>
 
-                {/* Client logos placeholder */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ delay: 1 }}
-                    className="mt-16 pt-12 border-t border-gray-100"
-                >
-                    <p className="text-center text-sm text-gray-400 mb-8">DIPERCAYA OLEH PERUSAHAAN TERKEMUKA</p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16 opacity-50">
-                        {['Pertamina', 'PLN', 'Bank Mandiri', 'Telkom', 'Astra'].map((company) => (
-                            <div
-                                key={company}
-                                className="px-6 py-3 bg-gray-100 rounded-lg text-gray-600 font-semibold text-sm"
-                            >
-                                {company}
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
             </div>
         </section>
     );
