@@ -83,7 +83,6 @@ return new class extends Migration {
             $table->integer('views')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
-
             $table->index('penulis_id');
             $table->index('published_at');
         });

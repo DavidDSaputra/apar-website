@@ -51,21 +51,23 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <motion.a
-                        href="#"
-                        className="flex items-center gap-2"
-                        whileHover={{ scale: 1.02 }}
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2 group"
                     >
-                        <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <motion.div
+                            className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform"
+                            whileHover={{ rotate: 5 }}
+                        >
                             <span className="text-white font-bold text-lg">J</span>
-                        </div>
+                        </motion.div>
                         <div className="flex flex-col">
-                            <span className="text-lg font-bold text-gray-900 leading-tight">
+                            <span className="text-lg font-bold text-gray-900 leading-tight group-hover:text-red-600 transition-colors">
                                 JOULWINN
                             </span>
                             <span className="text-xs text-gray-500 -mt-0.5">APAR Bersertifikat</span>
                         </div>
-                    </motion.a>
+                    </Link>
 
                     {/* Desktop Menu */}
                     <div className="hidden lg:flex items-center gap-8">

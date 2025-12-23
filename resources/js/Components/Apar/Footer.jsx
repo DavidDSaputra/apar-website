@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 const quickLinks = [
     { name: 'Produk', href: '#produk' },
@@ -49,15 +50,15 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Company Info */}
                     <div>
-                        <div className="flex items-center gap-2 mb-6">
-                            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center">
+                        <Link href="/" className="flex items-center gap-2 mb-6 group">
+                            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
                                 <span className="text-white font-bold text-lg">J</span>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xl font-bold">JOULWINN</span>
+                                <span className="text-xl font-bold group-hover:text-red-500 transition-colors">JOULWINN</span>
                                 <span className="text-xs text-gray-500">APAR Bersertifikat</span>
                             </div>
-                        </div>
+                        </Link>
                         <p className="text-gray-400 mb-6">
                             PT Joulwinn Gelvis Hotapea - Penyedia APAR berkualitas dengan sertifikasi SNI untuk perlindungan maksimal bisnis Anda.
                         </p>
