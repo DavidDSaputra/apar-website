@@ -87,7 +87,7 @@ ${formData.pesan}`;
                             Pastikan Keamanan dari Bahaya Kebakaran?
                         </h2>
                         <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-                            Punya pertanyaan? Hubungi langsung via WhatsApp untuk konsultasi cepat dengan tim ahli kami.
+                            Tanyakan ketersediaan stok atau konsultasikan kebutuhan APAR Anda langsung via WhatsApp.
                         </p>
 
                         <motion.a
