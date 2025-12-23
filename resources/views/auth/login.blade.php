@@ -521,15 +521,7 @@
                                 </span>
                             </button>
 
-                            <!-- Divider -->
-                            <div class="relative animate-fade-in-up delay-500">
-                                <div class="absolute inset-0 flex items-center">
-                                    <div class="w-full border-t theme-border"></div>
-                                </div>
-                                <div class="relative flex justify-center text-sm">
-                                    <span class="px-4 theme-bg-secondary theme-text-secondary">Or continue with</span>
-                                </div>
-                            </div>
+
                         </form>
 
                     </div>
