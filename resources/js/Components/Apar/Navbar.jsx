@@ -4,7 +4,7 @@ import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { Link } from '@inertiajs/react';
 
 const menuItems = [
-    { name: 'Beranda', href: '/', isAnchor: false },
+    { name: 'Home', href: '/', isAnchor: false },
     { name: 'Produk', href: '/produk', isAnchor: false },
     { name: 'Sertifikasi', href: '/#sertifikasi', isAnchor: true },
     { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
