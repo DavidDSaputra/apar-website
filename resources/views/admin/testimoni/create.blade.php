@@ -7,7 +7,7 @@
     <!-- Back Button -->
     <div class="mb-6 animate-fade-in-up">
         <a href="{{ route('admin.testimoni.index') }}"
-            class="inline-flex items-center theme-text-secondary hover:text-blue-500 transition duration-150">
+            class="inline-flex items-center theme-text-secondary hover:text-red-500 transition duration-150">
             <i class="fas fa-arrow-left mr-2"></i>
             <span class="font-medium">Kembali ke Daftar</span>
         </a>
@@ -32,7 +32,7 @@
                             Nama Lengkap <span class="text-red-500">*</span>
                         </label>
                         <input type="text" name="nama" id="nama" value="{{ old('nama') }}"
-                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary transition duration-150 @error('nama') border-red-500 @enderror"
+                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary transition duration-150 @error('nama') border-red-500 @enderror"
                             placeholder="Masukkan nama lengkap" required>
                         @error('nama')
                             <p class="text-red-500 text-xs mt-1 flex items-center">
@@ -47,7 +47,7 @@
                             Pekerjaan / Jabatan
                         </label>
                         <input type="text" name="pekerjaan" id="pekerjaan" value="{{ old('pekerjaan') }}"
-                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary transition duration-150 @error('pekerjaan') border-red-500 @enderror"
+                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary transition duration-150 @error('pekerjaan') border-red-500 @enderror"
                             placeholder="Contoh: CEO PT. ABC">
                         @error('pekerjaan')
                             <p class="text-red-500 text-xs mt-1 flex items-center">
@@ -62,7 +62,7 @@
                             Rating <span class="text-red-500">*</span>
                         </label>
                         <select name="rating" id="rating"
-                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary transition duration-150 @error('rating') border-red-500 @enderror">
+                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary transition duration-150 @error('rating') border-red-500 @enderror">
                             <option value="5" {{ old('rating') == 5 ? 'selected' : '' }}>⭐⭐⭐⭐⭐ (5 Bintang)</option>
                             <option value="4" {{ old('rating') == 4 ? 'selected' : '' }}>⭐⭐⭐⭐ (4 Bintang)</option>
                             <option value="3" {{ old('rating') == 3 ? 'selected' : '' }}>⭐⭐⭐ (3 Bintang)</option>
@@ -85,13 +85,13 @@
                             Foto Profil
                         </label>
                         <div
-                            class="border-2 border-dashed theme-border rounded-lg p-6 text-center hover:border-blue-500 transition duration-150">
+                            class="border-2 border-dashed theme-border rounded-lg p-6 text-center hover:border-red-500 transition duration-150">
                             <input type="file" name="foto" id="foto" accept="image/*" class="hidden"
                                 onchange="previewImage(event)">
                             <label for="foto" class="cursor-pointer">
                                 <div id="preview-container" class="hidden mb-4">
                                     <img id="image-preview"
-                                        class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-blue-500/20">
+                                        class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-red-500/20">
                                 </div>
                                 <div id="upload-placeholder">
                                     <i class="fas fa-cloud-upload-alt text-4xl theme-text-secondary opacity-50 mb-2"></i>
@@ -113,7 +113,7 @@
                             Isi Testimoni <span class="text-red-500">*</span>
                         </label>
                         <textarea name="isi" id="isi" rows="6"
-                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary transition duration-150 resize-none @error('isi') border-red-500 @enderror"
+                            class="w-full px-4 py-2.5 rounded-lg theme-bg-secondary theme-border border focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary transition duration-150 resize-none @error('isi') border-red-500 @enderror"
                             placeholder="Tuliskan testimoni pelanggan..." required>{{ old('isi') }}</textarea>
                         @error('isi')
                             <p class="text-red-500 text-xs mt-1 flex items-center">

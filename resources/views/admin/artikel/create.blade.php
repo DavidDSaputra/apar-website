@@ -14,7 +14,7 @@
             <div class="mb-4 md:mb-0">
                 <div class="flex items-center space-x-2 text-sm theme-text-secondary mb-2">
                     <a href="{{ route('admin.artikels.index') }}"
-                        class="theme-text-primary hover:text-blue-500 transition-colors duration-200">
+                        class="theme-text-primary hover:text-red-500 transition-colors duration-200">
                         Articles
                     </a>
                     <span>/</span>
@@ -34,16 +34,16 @@
         </div>
 
         <!-- Storage Info Banner -->
-        <div class="mb-6 bg-blue-500/10 theme-border border border-blue-500/20 rounded-lg p-4 animate-fade-in-up delay-75">
+        <div class="mb-6 bg-red-500/10 theme-border border border-red-500/20 rounded-lg p-4 animate-fade-in-up delay-75">
             <div class="flex items-start">
-                <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
                 <div>
-                    <h4 class="text-sm font-medium text-blue-400">Cloudinary Storage Active</h4>
-                    <p class="text-xs text-blue-300 mt-1">
+                    <h4 class="text-sm font-medium text-red-400">Cloudinary Storage Active</h4>
+                    <p class="text-xs text-red-300 mt-1">
                         Featured images will be automatically uploaded to Cloudinary for optimal performance and fast
                         delivery.
                         No manual upload needed - the system handles everything automatically.
@@ -65,7 +65,7 @@
                     <div class="bg-gradient-card backdrop-blur-sm theme-border border rounded-xl shadow-lg p-4 md:p-6">
                         <label for="judul" class="block text-sm font-medium theme-text-secondary mb-2">Title *</label>
                         <input type="text" name="judul" id="judul" value="{{ old('judul') }}" required
-                            class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                             placeholder="Enter your article title here...">
                         @error('judul')
                             <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
@@ -128,7 +128,7 @@
                             <label for="gambar_featured" class="block text-sm font-medium theme-text-secondary mb-2">Upload
                                 Image</label>
                             <div
-                                class="border-2 border-dashed theme-border rounded-lg p-4 text-center hover:border-blue-500 transition duration-150">
+                                class="border-2 border-dashed theme-border rounded-lg p-4 text-center hover:border-red-500 transition duration-150">
                                 <input type="file" name="gambar_featured" id="gambar_featured" accept="image/*"
                                     class="hidden" onchange="previewImage(event)">
                                 <label for="gambar_featured" class="cursor-pointer block">
@@ -155,7 +155,7 @@
                         <div class="mb-4">
                             <label for="tags" class="block text-sm font-medium theme-text-secondary mb-2">Tags</label>
                             <input type="text" name="tags" id="tags" value="{{ old('tags') }}"
-                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                                 placeholder="tag1, tag2, tag3">
                             <p class="mt-1 text-xs theme-text-secondary opacity-70">Separate with commas</p>
                         </div>
@@ -165,14 +165,14 @@
                             <label for="meta_title" class="block text-sm font-medium theme-text-secondary mb-2">Meta
                                 Title</label>
                             <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title') }}"
-                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
                         </div>
 
                         <div>
                             <label for="meta_description" class="block text-sm font-medium theme-text-secondary mb-2">Meta
                                 Description</label>
                             <textarea name="meta_description" id="meta_description" rows="3"
-                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none">{{ old('meta_description') }}</textarea>
+                                class="w-full px-3 py-2 theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none">{{ old('meta_description') }}</textarea>
                         </div>
                     </div>
 
@@ -199,15 +199,15 @@
                     </div>
 
                     <!-- Editor Tips -->
-                    <div class="bg-blue-500/10 theme-border border border-blue-500/20 rounded-xl shadow-sm p-4 md:p-6">
+                    <div class="bg-red-500/10 theme-border border border-red-500/20 rounded-xl shadow-sm p-4 md:p-6">
                         <div class="flex items-center mb-3">
-                            <svg class="w-6 h-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <h3 class="text-lg font-semibold text-blue-400">Editor Tips</h3>
+                            <h3 class="text-lg font-semibold text-red-400">Editor Tips</h3>
                         </div>
-                        <ul class="space-y-2 text-sm text-blue-300 list-disc list-inside">
+                        <ul class="space-y-2 text-sm text-red-300 list-disc list-inside">
                             <li>Copy-paste dari Word tetap rapi</li>
                             <li>Bold, italic, ukuran font ter-preserve</li>
                             <li>Gunakan toolbar untuk formatting</li>

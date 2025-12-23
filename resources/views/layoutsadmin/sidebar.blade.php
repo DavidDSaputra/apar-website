@@ -7,7 +7,7 @@
                 <i class="fas fa-crown text-white text-lg"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold text-blue-400">AdminPanel</h1>
+                <h1 class="text-xl font-bold text-red-500">AdminPanel</h1>
                 <p class="text-xs theme-text-secondary">Dashboard v2.0</p>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <nav class="p-4 space-y-2 h-[calc(100vh-180px)] overflow-y-auto">
         <!-- Dashboard -->
         <a href="{{ route('admin.dashboard') }}"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.dashboard') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-100">
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.dashboard') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-100">
             <i class="fas fa-home text-lg"></i>
             <span class="font-medium">Dashboard</span>
         </a>
@@ -30,14 +30,14 @@
 
         <!-- Artikel -->
         <a href="{{ route('admin.artikels.index') }}"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.artikels.*') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-200">
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.artikels.*') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-200">
             <i class="fas fa-newspaper text-lg"></i>
             <span class="font-medium">Artikel</span>
         </a>
 
         <!-- Testimoni -->
         <a href="{{ route('admin.testimoni.index') }}"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.testimoni.*') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-300">
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.testimoni.*') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-300">
             <i class="fas fa-comment-alt text-lg"></i>
             <span class="font-medium">Testimoni</span>
         </a>
@@ -46,7 +46,7 @@
 
         <!-- Produk -->
         <a href="{{ route('admin.produk.index') }}"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.produk.*') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-500">
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.produk.*') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-500">
             <i class="fas fa-box text-lg"></i>
             <span class="font-medium">Produk</span>
         </a>
@@ -59,7 +59,7 @@
         <!-- Users -->
         @if(auth()->user()->role === 'super_admin')
             <a href="{{ route('admin.users.index') }}"
-                class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.users.*') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-600">
+                class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.users.*') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-600">
                 <i class="fas fa-users text-lg"></i>
                 <span class="font-medium">Manajemen User</span>
             </a>
@@ -67,7 +67,7 @@
 
         <!-- Activity Logs -->
         <a href="{{ route('admin.activity-logs.index') }}"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.activity-logs.*') ? 'bg-gradient-primary text-white' : 'hover:bg-blue-400/10 theme-text-secondary hover:text-blue-400' }} transition-all duration-300 animate-slide-in-left delay-600">
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg {{ request()->routeIs('admin.activity-logs.*') ? 'bg-gradient-primary text-white' : 'hover:bg-red-500/10 theme-text-secondary hover:text-red-500' }} transition-all duration-300 animate-slide-in-left delay-600">
             <i class="fas fa-history text-lg"></i>
             <span class="font-medium">Activity Logs</span>
         </a>
@@ -77,17 +77,17 @@
     <!-- Bottom Section -->
     <div class="absolute bottom-0 left-0 right-0 p-4 theme-border border-t bg-gradient-dark">
         <div class="flex items-center space-x-3 px-4 py-3">
-            <img src="https://ui-avatars.com/api/?name={{ auth()->user()->nama_lengkap ?? 'Admin' }}&background=60A5FA&color=fff"
+            <img src="https://ui-avatars.com/api/?name={{ auth()->user()->nama_lengkap ?? 'Admin' }}&background=EF4444&color=fff"
                 alt="Admin" class="w-10 h-10 rounded-full animate-pulse-glow">
             <div class="flex-1 overflow-hidden">
-                <p class="text-sm font-medium text-blue-400 truncate">{{ auth()->user()->nama_lengkap ?? 'Admin' }}</p>
+                <p class="text-sm font-medium text-red-500 truncate">{{ auth()->user()->nama_lengkap ?? 'Admin' }}</p>
                 <p class="text-xs theme-text-secondary truncate">{{ auth()->user()->email }}</p>
             </div>
             <!-- Logout Form -->
             <form action="{{ route('logout') }}" method="POST" class="inline">
                 @csrf
                 <button type="submit"
-                    class="fas fa-sign-out-alt theme-text-secondary hover:text-blue-400 cursor-pointer transition-colors bg-transparent border-0"
+                    class="fas fa-sign-out-alt theme-text-secondary hover:text-red-500 cursor-pointer transition-colors bg-transparent border-0"
                     title="Logout"></button>
             </form>
         </div>

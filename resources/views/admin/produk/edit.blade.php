@@ -10,7 +10,7 @@
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 animate-fade-in-up">
             <h1 class="text-2xl font-bold theme-text-primary">Edit Produk</h1>
             <a href="{{ route('admin.produk.index') }}"
-                class="inline-flex items-center px-4 py-2 theme-bg-secondary theme-border border hover:border-blue-400 theme-text-primary rounded-lg transition-colors">
+                class="inline-flex items-center px-4 py-2 theme-bg-secondary theme-border border hover:border-red-400 theme-text-primary rounded-lg transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i>
                 Kembali
             </a>
@@ -38,7 +38,7 @@
                             </label>
                             <input type="text" id="nama_produk" name="nama_produk"
                                 value="{{ old('nama_produk', $produk->nama_produk) }}" required
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('nama_produk') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('nama_produk') border-red-500 @enderror">
                             @error('nama_produk')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -73,7 +73,7 @@
                                 </div>
                             @endif
                             <input type="file" id="gambar_utama" name="gambar_utama" accept="image/*"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('gambar_utama') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('gambar_utama') border-red-500 @enderror">
                             <p class="mt-1 text-xs theme-text-secondary opacity-70">Biarkan kosong jika tidak ingin mengubah
                             </p>
                             @error('gambar_utama')
@@ -87,7 +87,7 @@
                                 Tambah Gambar ke Galeri
                             </label>
                             <input type="file" id="gambar_produk" name="gambar_produk[]" accept="image/*" multiple
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('gambar_produk') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('gambar_produk') border-red-500 @enderror">
                             <p class="mt-1 text-xs theme-text-secondary opacity-70">Pilih beberapa gambar untuk ditambahkan
                                 ke galeri</p>
                             @error('gambar_produk')
@@ -128,7 +128,7 @@
                             </label>
                             <input type="text" id="meta_title" name="meta_title"
                                 value="{{ old('meta_title', $produk->meta_title) }}"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('meta_title') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('meta_title') border-red-500 @enderror">
                             @error('meta_title')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -142,7 +142,7 @@
                             <input type="text" id="meta_keywords" name="meta_keywords"
                                 value="{{ old('meta_keywords', $produk->meta_keywords) }}"
                                 placeholder="keyword1, keyword2, keyword3"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('meta_keywords') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('meta_keywords') border-red-500 @enderror">
                             @error('meta_keywords')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -154,7 +154,7 @@
                                 Meta Description
                             </label>
                             <textarea id="meta_description" name="meta_description" rows="3"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('meta_description') border-red-500 @enderror">{{ old('meta_description', $produk->meta_description) }}</textarea>
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('meta_description') border-red-500 @enderror">{{ old('meta_description', $produk->meta_description) }}</textarea>
                             @error('meta_description')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -172,7 +172,7 @@
                                 </div>
                             @endif
                             <input type="file" id="og_image" name="og_image" accept="image/*"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('og_image') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('og_image') border-red-500 @enderror">
                             <p class="mt-1 text-xs theme-text-secondary opacity-70">Biarkan kosong jika tidak ingin mengubah
                             </p>
                             @error('og_image')
@@ -187,7 +187,7 @@
                             </label>
                             <input type="url" id="canonical_url" name="canonical_url"
                                 value="{{ old('canonical_url', $produk->canonical_url) }}"
-                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent theme-text-primary @error('canonical_url') border-red-500 @enderror">
+                                class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent theme-text-primary @error('canonical_url') border-red-500 @enderror">
                             @error('canonical_url')
                                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                             @enderror
@@ -278,7 +278,7 @@
 
             .tox-tinymce:focus-within {
                 border-color: #3B82F6 !important;
-                /* blue-500 */
+                /* red-500 */
                 box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
             }
 

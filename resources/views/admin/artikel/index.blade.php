@@ -6,11 +6,11 @@
         <div class="mb-6 animate-fade-in-up">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                    <h2 class="text-2xl font-bold text-blue-400">Artikel</h2>
+                    <h2 class="text-2xl font-bold text-red-400">Artikel</h2>
                     <p class="text-sm theme-text-secondary mt-1">Kelola artikel dan konten website</p>
                 </div>
                 <a href="{{ route('admin.artikels.create') }}"
-                    class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-blue-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
+                    class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-red-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
                     <i class="fas fa-plus mr-2"></i>
                     <span>Tambah Artikel</span>
                 </a>
@@ -38,7 +38,7 @@
                         </label>
                         <input type="text" id="search" name="search" value="{{ request('search') }}"
                             placeholder="Cari judul, konten..."
-                            class="w-full px-4 py-2.5 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2.5 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-400 transition theme-text-primary">
                     </div>
 
                     <!-- Penulis Filter -->
@@ -47,7 +47,7 @@
                             <i class="fas fa-user mr-1 opacity-70"></i>Penulis
                         </label>
                         <select id="penulis" name="penulis"
-                            class="w-full px-4 py-2.5 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2.5 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-400 transition theme-text-primary">
                             <option value="">Semua Penulis</option>
                             @foreach ($penulis as $p)
                                 <option value="{{ $p->id }}" {{ request('penulis') == $p->id ? 'selected' : '' }}>
@@ -61,12 +61,12 @@
                 <!-- Filter Buttons -->
                 <div class="flex flex-wrap gap-3">
                     <button type="submit"
-                        class="inline-flex items-center px-6 py-2.5 bg-gradient-primary hover:shadow-lg hover:shadow-blue-500/30 text-white font-medium rounded-lg transition duration-200">
+                        class="inline-flex items-center px-6 py-2.5 bg-gradient-primary hover:shadow-lg hover:shadow-red-500/30 text-white font-medium rounded-lg transition duration-200">
                         <i class="fas fa-filter mr-2"></i>
                         Terapkan Filter
                     </button>
                     <a href="{{ route('admin.artikels.index') }}"
-                        class="inline-flex items-center px-6 py-2.5 theme-bg-secondary theme-border border hover:border-blue-400 theme-text-primary font-medium rounded-lg transition duration-200">
+                        class="inline-flex items-center px-6 py-2.5 theme-bg-secondary theme-border border hover:border-red-400 theme-text-primary font-medium rounded-lg transition duration-200">
                         <i class="fas fa-times mr-2"></i>
                         Reset Filter
                     </a>
@@ -78,13 +78,13 @@
                         <span class="text-sm font-medium theme-text-secondary">Filter Aktif:</span>
                         @if (request('search'))
                             <span
-                                class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-medium border border-blue-500/20">
+                                class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm font-medium border border-red-500/20">
                                 <i class="fas fa-search mr-1"></i>{{ request('search') }}
                             </span>
                         @endif
                         @if (request('penulis'))
                             <span
-                                class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm font-medium border border-blue-500/20">
+                                class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm font-medium border border-red-500/20">
                                 <i class="fas fa-user mr-1"></i>{{ $penulis->find(request('penulis'))->nama_lengkap ?? 'Unknown' }}
                             </span>
                         @endif
@@ -125,15 +125,15 @@
                     </thead>
                     <tbody class="divide-y theme-divide">
                         @forelse($artikels as $artikel)
-                            <tr class="hover:bg-blue-400/5 transition duration-150">
+                            <tr class="hover:bg-red-400/5 transition duration-150">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         @if ($artikel->gambar_featured)
-                                            <img class="h-12 w-12 rounded-lg object-cover mr-3 theme-border border ring-2 ring-blue-400/30"
+                                            <img class="h-12 w-12 rounded-lg object-cover mr-3 theme-border border ring-2 ring-red-400/30"
                                                 src="{{ Storage::url($artikel->gambar_featured) }}" alt="">
                                         @else
                                             <div
-                                                class="h-12 w-12 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 mr-3 flex items-center justify-center">
+                                                class="h-12 w-12 rounded-lg bg-gradient-to-br from-red-400 to-red-600 mr-3 flex items-center justify-center">
                                                 <i class="fas fa-image text-white"></i>
                                             </div>
                                         @endif
@@ -166,7 +166,7 @@
                                             <i class="fas fa-eye text-sm"></i>
                                         </a>
                                         <a href="{{ route('admin.artikels.edit', $artikel->id) }}"
-                                            class="inline-flex items-center px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition duration-150"
+                                            class="inline-flex items-center px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition duration-150"
                                             title="Edit">
                                             <i class="fas fa-edit text-sm"></i>
                                         </a>
@@ -194,7 +194,7 @@
                                         <p class="theme-text-secondary font-medium">Belum ada artikel</p>
                                         @if (request()->hasAny(['search', 'penulis']))
                                             <a href="{{ route('admin.artikels.index') }}"
-                                                class="mt-2 text-blue-400 hover:text-blue-300 text-sm">
+                                                class="mt-2 text-red-400 hover:text-red-300 text-sm">
                                                 Reset filter untuk melihat semua artikel
                                             </a>
                                         @endif
@@ -209,14 +209,14 @@
             <!-- Mobile Card View -->
             <div class="md:hidden divide-y theme-divide">
                 @forelse($artikels as $artikel)
-                    <div class="p-4 hover:bg-blue-400/5 transition duration-150">
+                    <div class="p-4 hover:bg-red-400/5 transition duration-150">
                         <div class="flex gap-4">
                             @if ($artikel->gambar_featured)
-                                <img class="h-20 w-20 rounded-lg object-cover theme-border border ring-2 ring-blue-400/30 flex-shrink-0"
+                                <img class="h-20 w-20 rounded-lg object-cover theme-border border ring-2 ring-red-400/30 flex-shrink-0"
                                     src="{{ Storage::url($artikel->gambar_featured) }}" alt="">
                             @else
                                 <div
-                                    class="h-20 w-20 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                                    class="h-20 w-20 rounded-lg bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center flex-shrink-0">
                                     <i class="fas fa-image text-white text-2xl"></i>
                                 </div>
                             @endif
@@ -234,7 +234,7 @@
                                         <i class="fas fa-eye mr-2"></i>Lihat
                                     </a>
                                     <a href="{{ route('admin.artikels.edit', $artikel->id) }}"
-                                        class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition text-sm font-medium">
+                                        class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition text-sm font-medium">
                                         <i class="fas fa-edit mr-2"></i>Edit
                                     </a>
                                 </div>

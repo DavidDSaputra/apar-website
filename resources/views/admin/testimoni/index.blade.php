@@ -7,11 +7,11 @@
     <div class="mb-6 animate-fade-in-up">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <h2 class="text-2xl font-bold text-blue-400">Testimoni</h2>
+                <h2 class="text-2xl font-bold text-red-400">Testimoni</h2>
                 <p class="text-sm theme-text-secondary mt-1">Kelola testimoni pelanggan</p>
             </div>
             <a href="{{ route('admin.testimoni.create') }}"
-                class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-blue-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
+                class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-red-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
                 <i class="fas fa-plus mr-2"></i>
                 <span>Tambah Testimoni</span>
             </a>
@@ -58,14 +58,14 @@
                 </thead>
                 <tbody class="divide-y theme-divide">
                     @forelse($testimonis as $testimoni)
-                        <tr class="hover:bg-blue-400/5 transition duration-150 ease-in-out">
+                        <tr class="hover:bg-red-400/5 transition duration-150 ease-in-out">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 @if ($testimoni->foto)
                                     <img src="{{ Storage::url($testimoni->foto) }}" alt="{{ $testimoni->nama }}"
-                                        class="h-12 w-12 rounded-full object-cover ring-2 ring-blue-400/30 theme-border border">
+                                        class="h-12 w-12 rounded-full object-cover ring-2 ring-red-400/30 theme-border border">
                                 @else
                                     <div
-                                        class="h-12 w-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                                        class="h-12 w-12 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
                                         <i class="fas fa-user text-white"></i>
                                     </div>
                                 @endif
@@ -92,7 +92,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex items-center justify-end gap-2">
                                     <a href="{{ route('admin.testimoni.edit', $testimoni->id) }}"
-                                        class="inline-flex items-center px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition duration-150"
+                                        class="inline-flex items-center px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition duration-150"
                                         title="Edit">
                                         <i class="fas fa-edit text-sm"></i>
                                     </a>
@@ -129,14 +129,14 @@
         <!-- Mobile Card View -->
         <div class="md:hidden divide-y theme-divide">
             @forelse($testimonis as $testimoni)
-                <div class="p-4 hover:bg-blue-400/5 transition duration-150">
+                <div class="p-4 hover:bg-red-400/5 transition duration-150">
                     <div class="flex items-start gap-4">
                         @if ($testimoni->foto)
                             <img src="{{ Storage::url($testimoni->foto) }}" alt="{{ $testimoni->nama }}"
-                                class="h-16 w-16 rounded-full object-cover ring-2 ring-blue-400/30 flex-shrink-0 theme-border border">
+                                class="h-16 w-16 rounded-full object-cover ring-2 ring-red-400/30 flex-shrink-0 theme-border border">
                         @else
                             <div
-                                class="h-16 w-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                                class="h-16 w-16 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-user text-white text-xl"></i>
                             </div>
                         @endif
@@ -151,7 +151,7 @@
                             <p class="text-sm theme-text-secondary line-clamp-2 mb-3">{{ $testimoni->isi }}</p>
                             <div class="flex gap-2">
                                 <a href="{{ route('admin.testimoni.edit', $testimoni->id) }}"
-                                    class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition text-sm font-medium">
+                                    class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition text-sm font-medium">
                                     <i class="fas fa-edit mr-2"></i>Edit
                                 </a>
                                 <form action="{{ route('admin.testimoni.destroy', $testimoni->id) }}" method="POST"

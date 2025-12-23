@@ -6,11 +6,11 @@
     <div class="mb-6 animate-fade-in-up">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <h2 class="text-2xl font-bold text-blue-400">Pengguna</h2>
+                <h2 class="text-2xl font-bold text-red-400">Pengguna</h2>
                 <p class="text-sm theme-text-secondary mt-1">Kelola akun pengguna dan hak akses</p>
             </div>
             <a href="{{ route('admin.users.create') }}"
-                class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-blue-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
+                class="inline-flex items-center justify-center px-4 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-red-500/30 text-white font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-1">
                 <i class="fas fa-plus mr-2"></i>
                 <span>Tambah Pengguna</span>
             </a>
@@ -53,15 +53,15 @@
                 </thead>
                 <tbody class="divide-y theme-divide">
                     @forelse($users as $user)
-                        <tr class="hover:bg-blue-400/5 transition duration-150">
+                        <tr class="hover:bg-red-400/5 transition duration-150">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     @if ($user->avatar)
-                                        <img class="h-12 w-12 rounded-full object-cover mr-3 theme-border border ring-2 ring-blue-400/30"
+                                        <img class="h-12 w-12 rounded-full object-cover mr-3 theme-border border ring-2 ring-red-400/30"
                                             src="{{ Storage::url($user->avatar) }}" alt="">
                                     @else
                                         <div
-                                            class="h-12 w-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 mr-3 flex items-center justify-center">
+                                            class="h-12 w-12 rounded-full bg-gradient-to-br from-red-400 to-red-600 mr-3 flex items-center justify-center">
                                             <i class="fas fa-user text-white"></i>
                                         </div>
                                     @endif
@@ -84,7 +84,7 @@
                                     </span>
                                 @elseif($user->role == 'penulis')
                                     <span
-                                        class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                        class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
                                         <i class="fas fa-pen mr-1"></i>Penulis
                                     </span>
                                 @else
@@ -105,7 +105,7 @@
                                         <i class="fas fa-eye text-sm"></i>
                                     </a>
                                     <a href="{{ route('admin.users.edit', $user->id) }}"
-                                        class="inline-flex items-center px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition duration-150"
+                                        class="inline-flex items-center px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition duration-150"
                                         title="Edit">
                                         <i class="fas fa-edit text-sm"></i>
                                     </a>
@@ -143,14 +143,14 @@
         <!-- Mobile Card View -->
         <div class="md:hidden divide-y theme-divide">
             @forelse($users as $user)
-                <div class="p-4 hover:bg-blue-400/5 transition duration-150">
+                <div class="p-4 hover:bg-red-400/5 transition duration-150">
                     <div class="flex items-start gap-4">
                         @if ($user->avatar)
-                            <img class="h-16 w-16 rounded-full object-cover theme-border border ring-2 ring-blue-400/30 flex-shrink-0"
+                            <img class="h-16 w-16 rounded-full object-cover theme-border border ring-2 ring-red-400/30 flex-shrink-0"
                                 src="{{ Storage::url($user->avatar) }}" alt="">
                         @else
                             <div
-                                class="h-16 w-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                                class="h-16 w-16 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-user text-white text-xl"></i>
                             </div>
                         @endif
@@ -167,7 +167,7 @@
                                         <i class="fas fa-user-shield mr-1"></i>Admin
                                     </span>
                                 @elseif($user->role == 'penulis')
-                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-500/10 text-red-400 border border-red-500/20">
                                         <i class="fas fa-pen mr-1"></i>Penulis
                                     </span>
                                 @else
@@ -182,7 +182,7 @@
                                     <i class="fas fa-eye mr-2"></i>Lihat
                                 </a>
                                 <a href="{{ route('admin.users.edit', $user->id) }}"
-                                    class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-500 rounded-lg transition text-sm font-medium">
+                                    class="flex-1 inline-flex items-center justify-center px-3 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 rounded-lg transition text-sm font-medium">
                                     <i class="fas fa-edit mr-2"></i>Edit
                                 </a>
                             </div>

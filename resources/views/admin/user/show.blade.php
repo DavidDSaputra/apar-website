@@ -6,7 +6,7 @@
 @section('content')
     <div class="bg-gradient-card backdrop-blur-sm theme-border border rounded-xl shadow-lg p-6 animate-fade-in-up">
         <div class="mb-6 flex justify-between items-center">
-            <a href="{{ route('admin.users.index') }}" class="theme-text-secondary hover:text-blue-500 transition duration-150 flex items-center">
+            <a href="{{ route('admin.users.index') }}" class="theme-text-secondary hover:text-red-500 transition duration-150 flex items-center">
                 <i class="fas fa-arrow-left mr-2"></i>Kembali ke Daftar
             </a>
             <div class="flex space-x-2">
@@ -28,9 +28,9 @@
             <div class="lg:col-span-2">
                 <div class="flex items-center mb-8">
                     @if($user->avatar)
-                        <img src="{{ Storage::url($user->avatar) }}" alt="{{ $user->nama_lengkap }}" class="h-24 w-24 rounded-full object-cover mr-6 ring-4 ring-blue-500/20">
+                        <img src="{{ Storage::url($user->avatar) }}" alt="{{ $user->nama_lengkap }}" class="h-24 w-24 rounded-full object-cover mr-6 ring-4 ring-red-500/20">
                     @else
-                        <div class="h-24 w-24 rounded-full theme-bg-secondary mr-6 flex items-center justify-center ring-4 ring-blue-500/20">
+                        <div class="h-24 w-24 rounded-full theme-bg-secondary mr-6 flex items-center justify-center ring-4 ring-red-500/20">
                             <i class="fas fa-user text-4xl theme-text-secondary"></i>
                         </div>
                     @endif
@@ -43,7 +43,7 @@
                                     Administrator
                                 </span>
                             @elseif($user->role == 'penulis')
-                                <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-blue-500/20 text-blue-300">
+                                <span class="px-3 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-red-500/20 text-red-300">
                                     Penulis
                                 </span>
                             @else

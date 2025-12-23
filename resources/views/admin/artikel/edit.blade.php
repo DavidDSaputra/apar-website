@@ -14,7 +14,7 @@
                 <div class="mb-4 md:mb-0">
                     <div class="flex items-center space-x-2 text-sm theme-text-secondary mb-2">
                         <a href="{{ route('admin.artikels.index') }}"
-                            class="theme-text-primary hover:text-blue-500 transition-colors duration-200">
+                            class="theme-text-primary hover:text-red-500 transition-colors duration-200">
                             Articles
                         </a>
                         <span>/</span>
@@ -34,16 +34,16 @@
             </div>
 
             <!-- Storage Info Banner -->
-            <div class="mb-6 bg-blue-500/10 theme-border border border-blue-500/20 rounded-lg p-4 animate-fade-in-up delay-75">
+            <div class="mb-6 bg-red-500/10 theme-border border border-red-500/20 rounded-lg p-4 animate-fade-in-up delay-75">
                 <div class="flex items-start">
-                    <svg class="w-5 h-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                    <svg class="w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-medium text-blue-400">Cloudinary Storage Active</h4>
-                        <p class="text-xs text-blue-300 mt-1">
+                        <h4 class="text-sm font-medium text-red-400">Cloudinary Storage Active</h4>
+                        <p class="text-xs text-red-300 mt-1">
                             Featured images will be automatically uploaded to Cloudinary for optimal performance and fast
                             delivery.
                         </p>
@@ -63,7 +63,7 @@
                         <div class="bg-gradient-card backdrop-blur-sm theme-border border rounded-xl shadow-lg p-4 md:p-6">
                             <label for="judul" class="block text-sm font-medium theme-text-secondary mb-2">Title *</label>
                             <input type="text" name="judul" id="judul" value="{{ old('judul', $artikel->judul) }}" required
-                                class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                                 placeholder="Enter your article title here...">
                             @error('judul')
                                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
@@ -131,46 +131,46 @@
                         <div class="mb-4" form="main-form">
                             <!-- Note: Linked to form via JS or placing inside form if structural change needed. But here we are separating layouts. Wait, input must be inside form. -->
                             <!-- 
-                                   Wait, in the original file, the sidebar components were INSIDE the <form> tag?
-                                   Let's check the original file structure.
-                                   Original: <form ... class="space-y-6"> ... <div class="bg-white ...">Image stuff</div> ... </form>
-                                   The form wrapped the entire "Left Column" but the "Featured Image Card" was seemingly part of the flow?
-                                   Actually, line 54: grid-cols-1 xl:grid-cols-3
-                                   Line 56: xl:col-span-2 -> Form starts at line 57 inside this column.
-                                   Line 95: Featured Image Card is INSIDE the form in the original file? 
-                                   Looking closer at the original:
-                                   Line 57: <form ...>
-                                   Line 63: Title Card
-                                   Line 74: Rich Text Editor
-                                   Line 95: Featured Image Card
-                                   Line 151: End section.
-                                   So the form wrapped everything in the col-span-2?
-                                   But wait, where is the submit button? It wasn't visible in the view_file snippet.
-                                   Ah, line 54 is `grid-cols-1 xl:grid-cols-3`.
-                                   The form starts inside `xl:col-span-2`.
-                                   The featured image card is inside the form.
-                                   But visually, usually the side bar is separate. 
-                                   In the original file, it seems the form ONLY occupied the col-span-2 and there was NO content in the other column? 
-                                   Line 54 starts the grid.
-                                   Line 56 starts col-span-2.
-                                   Line 57 starts form.
-                                   The form closes... wait, the closing tag wasn't shown? Or I missed it.
-                                   Actually, if the form wraps the image card, then the image card is in the main column.
-                                   Let's restructure this to be better if possible, OR stick to the original structure but move styling.
+                                                   Wait, in the original file, the sidebar components were INSIDE the <form> tag?
+                                                   Let's check the original file structure.
+                                                   Original: <form ... class="space-y-6"> ... <div class="bg-white ...">Image stuff</div> ... </form>
+                                                   The form wrapped the entire "Left Column" but the "Featured Image Card" was seemingly part of the flow?
+                                                   Actually, line 54: grid-cols-1 xl:grid-cols-3
+                                                   Line 56: xl:col-span-2 -> Form starts at line 57 inside this column.
+                                                   Line 95: Featured Image Card is INSIDE the form in the original file? 
+                                                   Looking closer at the original:
+                                                   Line 57: <form ...>
+                                                   Line 63: Title Card
+                                                   Line 74: Rich Text Editor
+                                                   Line 95: Featured Image Card
+                                                   Line 151: End section.
+                                                   So the form wrapped everything in the col-span-2?
+                                                   But wait, where is the submit button? It wasn't visible in the view_file snippet.
+                                                   Ah, line 54 is `grid-cols-1 xl:grid-cols-3`.
+                                                   The form starts inside `xl:col-span-2`.
+                                                   The featured image card is inside the form.
+                                                   But visually, usually the side bar is separate. 
+                                                   In the original file, it seems the form ONLY occupied the col-span-2 and there was NO content in the other column? 
+                                                   Line 54 starts the grid.
+                                                   Line 56 starts col-span-2.
+                                                   Line 57 starts form.
+                                                   The form closes... wait, the closing tag wasn't shown? Or I missed it.
+                                                   Actually, if the form wraps the image card, then the image card is in the main column.
+                                                   Let's restructure this to be better if possible, OR stick to the original structure but move styling.
 
-                                   If I move the image input OUTSIDE the form, it won't submit.
-                                   So I should wrap the grid WITH the form, or have inputs inside the form.
+                                                   If I move the image input OUTSIDE the form, it won't submit.
+                                                   So I should wrap the grid WITH the form, or have inputs inside the form.
 
-                                   Structure Plan:
-                                   <form>
-                                     <div class="grid">
-                                        <div class="col-span-2">Title, Editor</div>
-                                        <div class="col-span-1">Image, Submit</div>
-                                     </div>
-                                   </form>
+                                                   Structure Plan:
+                                                   <form>
+                                                     <div class="grid">
+                                                        <div class="col-span-2">Title, Editor</div>
+                                                        <div class="col-span-1">Image, Submit</div>
+                                                     </div>
+                                                   </form>
 
-                                   This is standard practice.
-                                -->
+                                                   This is standard practice.
+                                                -->
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                         <div class="bg-gradient-card backdrop-blur-sm theme-border border rounded-xl shadow-lg p-4 md:p-6">
                             <label for="judul" class="block text-sm font-medium theme-text-secondary mb-2">Title *</label>
                             <input type="text" name="judul" id="judul" value="{{ old('judul', $artikel->judul) }}" required
-                                class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                class="w-full px-3 md:px-4 py-2 md:py-3 text-lg md:text-2xl font-semibold theme-bg-secondary theme-border border theme-text-primary rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                                 placeholder="Enter your article title here...">
                             @error('judul')
                                 <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
@@ -254,7 +254,7 @@
                                 <label for="gambar_featured" class="block text-sm font-medium theme-text-secondary mb-2">Change
                                     Image</label>
                                 <div
-                                    class="border-2 border-dashed theme-border rounded-lg p-4 text-center hover:border-blue-500 transition duration-150">
+                                    class="border-2 border-dashed theme-border rounded-lg p-4 text-center hover:border-red-500 transition duration-150">
                                     <input type="file" name="gambar_featured" id="gambar_featured" accept="image/*"
                                         class="hidden" onchange="previewImage(event)">
                                     <label for="gambar_featured" class="cursor-pointer block">

@@ -7,7 +7,7 @@
         <!-- Page Header -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 animate-fade-in-up">
             <div>
-                <h1 class="text-2xl font-bold text-blue-400">Activity Logs</h1>
+                <h1 class="text-2xl font-bold text-red-500">Activity Logs</h1>
                 <p class="text-sm theme-text-secondary mt-1">Monitor system activities and changes</p>
             </div>
         </div>
@@ -22,14 +22,14 @@
                         <label for="search" class="block text-sm font-semibold theme-text-secondary mb-2">Search</label>
                         <input type="text" id="search" name="search" value="{{ request('search') }}"
                             placeholder="Search action, table, user..."
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                     </div>
 
                     <!-- Action Filter -->
                     <div>
                         <label for="action" class="block text-sm font-semibold theme-text-secondary mb-2">Action</label>
                         <select id="action" name="action"
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                             <option value="">All Actions</option>
                             @foreach($actions as $action)
                                 <option value="{{ $action }}" {{ request('action') == $action ? 'selected' : '' }}>
@@ -43,7 +43,7 @@
                     <div>
                         <label for="user_id" class="block text-sm font-semibold theme-text-secondary mb-2">User</label>
                         <select id="user_id" name="user_id"
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                             <option value="">All Users</option>
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}" {{ request('user_id') == $user->id ? 'selected' : '' }}>
@@ -57,7 +57,7 @@
                     <div>
                         <label for="table" class="block text-sm font-semibold theme-text-secondary mb-2">Table</label>
                         <select id="table" name="table"
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                             <option value="">All Tables</option>
                             @foreach($tables as $table)
                                 <option value="{{ $table }}" {{ request('table') == $table ? 'selected' : '' }}>
@@ -72,26 +72,26 @@
                         <label for="date_from" class="block text-sm font-semibold theme-text-secondary mb-2">Date
                             From</label>
                         <input type="date" id="date_from" name="date_from" value="{{ request('date_from') }}"
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                     </div>
 
                     <!-- Date To -->
                     <div>
                         <label for="date_to" class="block text-sm font-semibold theme-text-secondary mb-2">Date To</label>
                         <input type="date" id="date_to" name="date_to" value="{{ request('date_to') }}"
-                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-blue-400 transition theme-text-primary">
+                            class="w-full px-4 py-2 theme-bg-secondary theme-border border rounded-lg focus:outline-none focus:border-red-500 transition theme-text-primary">
                     </div>
                 </div>
 
                 <!-- Filter Buttons -->
                 <div class="flex gap-3">
                     <button type="submit"
-                        class="px-6 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-blue-500/30 text-white rounded-lg transition-all duration-300">
+                        class="px-6 py-2 bg-gradient-primary hover:shadow-lg hover:shadow-red-500/30 text-white rounded-lg transition-all duration-300">
                         <i class="fas fa-filter mr-2"></i>
                         Apply Filters
                     </button>
                     <a href="{{ route('admin.activity-logs.index') }}"
-                        class="px-6 py-2 theme-bg-secondary theme-border border hover:border-blue-400 theme-text-primary rounded-lg transition-all duration-300">
+                        class="px-6 py-2 theme-bg-secondary theme-border border hover:border-red-500 theme-text-primary rounded-lg transition-all duration-300">
                         <i class="fas fa-times mr-2"></i>
                         Clear Filters
                     </a>
@@ -102,32 +102,32 @@
                     <div class="flex flex-wrap gap-2 pt-4 theme-border border-t border-dashed mt-4">
                         <span class="text-sm font-medium theme-text-secondary">Active Filters:</span>
                         @if(request('search'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 Search: {{ request('search') }}
                             </span>
                         @endif
                         @if(request('action'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 Action: {{ ucfirst(request('action')) }}
                             </span>
                         @endif
                         @if(request('user_id'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 User: {{ $users->find(request('user_id'))->name ?? 'Unknown' }}
                             </span>
                         @endif
                         @if(request('table'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 Table: {{ request('table') }}
                             </span>
                         @endif
                         @if(request('date_from'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 From: {{ request('date_from') }}
                             </span>
                         @endif
                         @if(request('date_to'))
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm border border-blue-500/20">
+                            <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-sm border border-red-500/20">
                                 To: {{ request('date_to') }}
                             </span>
                         @endif
@@ -157,7 +157,7 @@
                     </thead>
                     <tbody class="divide-y theme-divide">
                         @forelse($logs as $log)
-                            <tr class="hover:bg-blue-400/5 transition-colors">
+                            <tr class="hover:bg-red-400/5 transition-colors">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm theme-text-secondary">
                                     <div>{{ $log->created_at->format('d M Y') }}</div>
                                     <div class="text-xs opacity-70">{{ $log->created_at->format('H:i:s') }}</div>
@@ -165,7 +165,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div
-                                            class="flex-shrink-0 h-8 w-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-xs theme-border border">
+                                            class="flex-shrink-0 h-8 w-8 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 font-bold text-xs theme-border border">
                                             {{ $log->user ? strtoupper(substr($log->user->name, 0, 2)) : 'SY' }}
                                         </div>
                                         <div class="ml-3">
@@ -182,7 +182,7 @@
                                     @php
                                         $badgeColor = match ($log->action) {
                                             'created' => 'green',
-                                            'updated' => 'blue',
+                                            'updated' => 'red',
                                             'deleted' => 'red',
                                             default => 'gray'
                                         };
@@ -203,7 +203,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <button onclick="showDetails('{{ $log->id }}')"
-                                        class="text-blue-400 hover:text-blue-300 transition-colors">
+                                        class="text-red-500 hover:text-red-400 transition-colors">
                                         <i class="fas fa-eye mr-1"></i>
                                         View Details
                                     </button>
@@ -222,7 +222,7 @@
                                     <p class="text-lg">No activity logs found</p>
                                     @if(request()->hasAny(['search', 'action', 'user_id', 'table', 'date_from', 'date_to']))
                                         <a href="{{ route('admin.activity-logs.index') }}"
-                                            class="mt-2 inline-block text-blue-400 hover:text-blue-300">
+                                            class="mt-2 inline-block text-red-500 hover:text-red-400">
                                             Clear filters to see all logs
                                         </a>
                                     @endif
@@ -256,7 +256,7 @@
                 <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                            <h3 class="text-lg leading-6 font-bold text-blue-400 mb-4" id="modal-title">
+                            <h3 class="text-lg leading-6 font-bold text-red-500 mb-4" id="modal-title">
                                 Activity Details
                             </h3>
                             <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
