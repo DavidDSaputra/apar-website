@@ -17,11 +17,10 @@ export default function ContactSection() {
     const [formData, setFormData] = useState({
         nama: '',
         perusahaan: '',
-        kota: '',
-        kebutuhan: '',
-        no_wa: '',
+        subjek: '',
+        pesan: '',
     });
-    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+    const [status, setStatus] = useState('idle'); // idle, success, error
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
@@ -35,49 +34,39 @@ export default function ContactSection() {
     const validate = () => {
         const newErrors = {};
         if (!formData.nama.trim()) newErrors.nama = 'Nama wajib diisi';
-        if (!formData.kota.trim()) newErrors.kota = 'Kota wajib diisi';
-        if (!formData.kebutuhan) newErrors.kebutuhan = 'Pilih kebutuhan';
-        if (!formData.no_wa.trim()) {
-            newErrors.no_wa = 'Nomor WhatsApp wajib diisi';
-        } else if (!/^[0-9+\-\s]{10,15}$/.test(formData.no_wa.replace(/\s/g, ''))) {
-            newErrors.no_wa = 'Nomor WhatsApp tidak valid';
-        }
+        if (!formData.subjek.trim()) newErrors.subjek = 'Subjek wajib diisi';
+        if (!formData.pesan.trim()) newErrors.pesan = 'Pesan wajib diisi';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (!validate()) {
             return;
         }
 
-        setStatus('loading');
-        try {
-            const response = await fetch('/api/leads', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+        const phone = '6281258887895';
+        const template = `Halo Joulwinn, saya ingin bertanya:
+        
+Nama: ${formData.nama}
+${formData.perusahaan ? `Perusahaan: ${formData.perusahaan}` : ''}
+Subjek: ${formData.subjek}
 
-            if (response.ok) {
-                setStatus('success');
-                setFormData({
-                    nama: '',
-                    perusahaan: '',
-                    kota: '',
-                    kebutuhan: '',
-                    no_wa: '',
-                });
-            } else {
-                setStatus('error');
-            }
-        } catch (error) {
-            setStatus('error');
-        }
+Pesan:
+${formData.pesan}`;
+
+        const encodedMessage = encodeURIComponent(template);
+        const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
+
+        window.open(waUrl, '_blank');
+        setStatus('success');
+        setFormData({
+            nama: '',
+            perusahaan: '',
+            subjek: '',
+            pesan: '',
+        });
     };
 
     return (
@@ -98,7 +87,7 @@ export default function ContactSection() {
                             Siap Lindungi Bisnis Anda?
                         </h2>
                         <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-                            Isi form untuk mendapat penawaran terbaik atau hubungi langsung via WhatsApp untuk konsultasi cepat dengan tim ahli kami.
+                            Punya pertanyaan? Hubungi langsung via WhatsApp untuk konsultasi cepat dengan tim ahli kami.
                         </p>
 
                         <motion.a
@@ -143,7 +132,7 @@ export default function ContactSection() {
                     >
                         <div className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-2xl shadow-gray-200/50 relative">
                             <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                                Minta Penawaran
+                                Hubungi Kami
                                 <div className="h-1 w-10 bg-red-600 rounded-full"></div>
                             </h3>
 
@@ -156,15 +145,15 @@ export default function ContactSection() {
                                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                         <CheckCircle size={40} className="text-green-600" />
                                     </div>
-                                    <h4 className="text-xl font-bold text-gray-900 mb-3">Terkirim Berhasil!</h4>
+                                    <h4 className="text-xl font-bold text-gray-900 mb-3">Dialihkan ke WhatsApp!</h4>
                                     <p className="text-gray-600 mb-8">
-                                        Data Anda telah masuk. Tim kami akan segera menghubungi Anda melalui WhatsApp.
+                                        Silakan lanjutkan percakapan di WhatsApp. Tim kami akan segera membantu Anda.
                                     </p>
                                     <button
                                         onClick={() => setStatus('idle')}
                                         className="px-8 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors"
                                     >
-                                        Kirim Data Lain
+                                        Kirim Pesan Lain
                                     </button>
                                 </motion.div>
                             ) : (
@@ -206,79 +195,52 @@ export default function ContactSection() {
 
                                     <div>
                                         <label className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest pl-1">
-                                            Kota <span className="text-red-500">*</span>
+                                            Subjek <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
-                                            name="kota"
-                                            value={formData.kota}
+                                            name="subjek"
+                                            value={formData.subjek}
                                             onChange={handleChange}
-                                            className={`w-full px-5 py-4 rounded-2xl border ${errors.kota ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50'
+                                            className={`w-full px-5 py-4 rounded-2xl border ${errors.subjek ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50'
                                                 } focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all`}
-                                            placeholder="Kota domisili / pengiriman"
+                                            placeholder="Topik pesan"
                                         />
-                                        {errors.kota && (
+                                        {errors.subjek && (
                                             <p className="text-red-500 text-xs mt-1 pl-1 flex items-center gap-1">
-                                                <AlertCircle size={12} /> {errors.kota}
+                                                <AlertCircle size={12} /> {errors.subjek}
                                             </p>
                                         )}
                                     </div>
 
-                                    <div className="grid sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest pl-1">
-                                                Kebutuhan <span className="text-red-500">*</span>
-                                            </label>
-                                            <select
-                                                name="kebutuhan"
-                                                value={formData.kebutuhan}
-                                                onChange={handleChange}
-                                                className={`w-full px-5 py-4 rounded-2xl border ${errors.kebutuhan ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50'
-                                                    } focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all`}
-                                            >
-                                                <option value="">Pilih...</option>
-                                                {kebutuhanOptions.map((opt) => (
-                                                    <option key={opt} value={opt}>{opt}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest pl-1">
-                                                WhatsApp <span className="text-red-500">*</span>
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                name="no_wa"
-                                                value={formData.no_wa}
-                                                onChange={handleChange}
-                                                className={`w-full px-5 py-4 rounded-2xl border ${errors.no_wa ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50'
-                                                    } focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all`}
-                                                placeholder="08xxxxxxxxxx"
-                                            />
-                                        </div>
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest pl-1">
+                                            Pesan <span className="text-red-500">*</span>
+                                        </label>
+                                        <textarea
+                                            name="pesan"
+                                            value={formData.pesan}
+                                            onChange={handleChange}
+                                            rows="4"
+                                            className={`w-full px-5 py-4 rounded-2xl border ${errors.pesan ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-gray-50'
+                                                } focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all resize-none`}
+                                            placeholder="Tulis pesan Anda di sini..."
+                                        />
+                                        {errors.pesan && (
+                                            <p className="text-red-500 text-xs mt-1 pl-1 flex items-center gap-1">
+                                                <AlertCircle size={12} /> {errors.pesan}
+                                            </p>
+                                        )}
                                     </div>
-
-                                    {status === 'error' && (
-                                        <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-600 text-sm flex items-center gap-2">
-                                            <AlertCircle size={18} /> Terjadi kesalahan. Coba lagi.
-                                        </div>
-                                    )}
 
                                     <motion.button
                                         type="submit"
-                                        disabled={status === 'loading'}
-                                        className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-2xl shadow-xl shadow-red-500/30 hover:shadow-red-500/40 transition-all disabled:opacity-70 group"
-                                        whileHover={{ scale: status === 'loading' ? 1 : 1.02 }}
-                                        whileTap={{ scale: status === 'loading' ? 1 : 0.98 }}
+                                        className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-2xl shadow-xl shadow-red-500/30 hover:shadow-red-500/40 transition-all group"
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        {status === 'loading' ? (
-                                            <Loader2 size={24} className="animate-spin" />
-                                        ) : (
-                                            <>
-                                                <Send size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                                                <span>Kirim Permintaan Sekarang</span>
-                                            </>
-                                        )}
+                                        <MessageCircle size={20} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                                        <span>Chat di WhatsApp</span>
                                     </motion.button>
                                 </form>
                             )}
