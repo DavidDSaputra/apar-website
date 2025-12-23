@@ -6,7 +6,6 @@ import { Link } from '@inertiajs/react';
 const menuItems = [
     { name: 'Beranda', href: '/', isAnchor: false },
     { name: 'Produk', href: '/produk', isAnchor: false },
-    { name: 'Layanan', href: '/#layanan', isAnchor: true },
     { name: 'Sertifikasi', href: '/#sertifikasi', isAnchor: true },
     { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
     { name: 'FAQ', href: '/#faq', isAnchor: true },

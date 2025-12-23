@@ -7,7 +7,6 @@ import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import ProductComparison from '@/Components/Apar/ProductComparison';
 import AparCalculator from '@/Components/Apar/AparCalculator';
-import ServicePackages from '@/Components/Apar/ServicePackages';
 import Gallery from '@/Components/Apar/Gallery';
 import VideoDemo from '@/Components/Apar/VideoDemo';
 import Certification from '@/Components/Apar/Certification';
@@ -45,7 +44,6 @@ export default function AparLanding({ products }) {
 
                 <ProductComparison />
                 <AparCalculator />
-                <ServicePackages />
                 <Gallery />
                 <VideoDemo />
                 <Certification />
