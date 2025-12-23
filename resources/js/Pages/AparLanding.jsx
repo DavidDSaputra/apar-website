@@ -18,7 +18,7 @@ import Footer from '@/Components/Apar/Footer';
 import LoadingScreen from '@/Components/Apar/LoadingScreen';
 import PromoBanner from '@/Components/Apar/PromoBanner';
 
-export default function AparLanding() {
+export default function AparLanding({ products }) {
     return (
         <div className="min-h-screen bg-white font-sans">
             <LoadingScreen />
@@ -27,7 +27,7 @@ export default function AparLanding() {
                 <Hero />
                 <TrustBar />
                 <ProblemSolution />
-                <ProductGrid />
+                <ProductGrid dynamicProducts={products} />
                 <ProductComparison />
                 <AparCalculator />
                 <ServicePackages />
