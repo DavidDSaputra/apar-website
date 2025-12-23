@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Shield, Truck, Award, Headphones, CheckCircle } from 'lucide-react';
+import { ArrowRight, ChevronDown, Shield, Truck, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
     const handleSmoothScroll = (e, href) => {
@@ -121,33 +121,6 @@ export default function Hero() {
                             </motion.a>
                         </motion.div>
 
-                        {/* Trust badges */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.7, duration: 0.8 }}
-                            className="grid grid-cols-2 sm:grid-cols-4 gap-4"
-                        >
-                            {[
-                                { icon: Shield, text: 'SNI Certified' },
-                                { icon: Truck, text: 'Siap Kirim' },
-                                { icon: Award, text: 'Garansi Resmi' },
-                                { icon: Headphones, text: 'Konsultasi Free' },
-                            ].map((item, index) => (
-                                <motion.div
-                                    key={item.text}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.8 + index * 0.1 }}
-                                    className="flex items-center gap-2 text-gray-600"
-                                >
-                                    <div className="w-8 h-8 bg-red-50 rounded-lg flex items-center justify-center">
-                                        <item.icon size={16} className="text-red-600" />
-                                    </div>
-                                    <span className="text-sm font-medium">{item.text}</span>
-                                </motion.div>
-                            ))}
-                        </motion.div>
                     </motion.div>
 
                     {/* Right Content - Hero Image */}
