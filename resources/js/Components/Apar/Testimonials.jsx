@@ -119,8 +119,16 @@ export default function Testimonials({ testimonis }) {
                                 </blockquote>
 
                                 <div className="flex flex-col items-center mt-auto">
-                                    <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-red-600 to-red-500 rounded-2xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-xl shadow-red-200 mb-3 md:mb-4 transform group-hover:rotate-6 transition-transform">
-                                        {activeTestimonials[currentIndex].name.charAt(0)}
+                                    <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-red-600 to-red-500 rounded-2xl flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-xl shadow-red-200 mb-3 md:mb-4 transform group-hover:rotate-6 transition-transform overflow-hidden">
+                                        {activeTestimonials[currentIndex].image ? (
+                                            <img
+                                                src={`/storage/${activeTestimonials[currentIndex].image}`}
+                                                alt={activeTestimonials[currentIndex].name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            activeTestimonials[currentIndex].name.charAt(0)
+                                        )}
                                     </div>
                                     <div>
                                         <h4 className="text-lg md:text-xl font-bold text-gray-900">{activeTestimonials[currentIndex].name}</h4>
