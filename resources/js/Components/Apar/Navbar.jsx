@@ -10,7 +10,7 @@ const menuItems = [
     { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
     { name: 'FAQ', href: '/#faq', isAnchor: true },
     { name: 'Blog', href: '/blog', isAnchor: false },
-    { name: 'Kontak', href: '/#kontak', isAnchor: true },
+    { name: 'Kontak', href: '/kontak', isAnchor: false },
 ];
 
 export default function Navbar() {

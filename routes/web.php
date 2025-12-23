@@ -26,6 +26,9 @@ Route::get('/produk/{slug}', [App\Http\Controllers\PublicProdukController::class
 Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
 
+// Contact Route
+Route::get('/kontak', [AparController::class, 'contact'])->name('contact');
+
 // Admin routes dengan middleware yang benar
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

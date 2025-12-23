@@ -21,4 +21,9 @@ class AparController extends Controller
             'products' => $products
         ]);
     }
+
+    public function contact(): Response
+    {
+        return Inertia::render('Contact');
+    }
 }
