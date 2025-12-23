@@ -82,14 +82,7 @@ export default function Navbar() {
 
                     {/* CTA Buttons */}
                     <div className="hidden lg:flex items-center gap-3">
-                        <motion.a
-                            href="tel:+6281258887895"
-                            className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors"
-                            whileHover={{ scale: 1.02 }}
-                        >
-                            <Phone size={18} />
-                            <span>Hubungi</span>
-                        </motion.a>
+
                         <motion.a
                             href="https://api.whatsapp.com/send?phone=6281258887895&text=Halo,%20saya%20ingin%20konsultasi%20tentang%20APAR"
                             target="_blank"
