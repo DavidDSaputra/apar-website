@@ -104,9 +104,6 @@ export default function Show({ product, relatedProducts = [] }) {
                                         <MessageCircle size={28} fill="currentColor" />
                                         <span>Pesan & Konsultasi Sekarang</span>
                                     </a>
-                                    <p className="text-center sm:text-left text-sm text-gray-400 italic">
-                                        * Konsultasi gratis dengan tim ahli kami
-                                    </p>
                                 </div>
                             </motion.div>
                         </div>
