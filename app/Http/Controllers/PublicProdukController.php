@@ -28,8 +28,14 @@ class PublicProdukController extends Controller
             }
         ])->where('slug', $slug)->firstOrFail();
 
+        $relatedProducts = Produk::where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
         return \Inertia\Inertia::render('Products/Show', [
-            'product' => $product
+            'product' => $product,
+            'relatedProducts' => $relatedProducts
         ]);
     }
 }
