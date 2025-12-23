@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
@@ -12,7 +13,9 @@ class BlogController extends Controller
             ->latest()
             ->paginate(9);
 
-        return view('blog.index', compact('posts'));
+        return Inertia::render('Blog/Index', [
+            'posts' => $posts
+        ]);
     }
 
     public function show($slug)
@@ -27,9 +30,12 @@ class BlogController extends Controller
         // Get related posts (exclude current)
         $related = \App\Models\Artikel::where('id', '!=', $post->id)
             ->inRandomOrder()
-            ->take(2)
+            ->take(3)
             ->get();
 
-        return view('blog.show', compact('post', 'related'));
+        return Inertia::render('Blog/Show', [
+            'post' => $post,
+            'related' => $related
+        ]);
     }
 }
