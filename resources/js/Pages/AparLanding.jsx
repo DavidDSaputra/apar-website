@@ -1,5 +1,5 @@
 import Hero from '@/Components/Apar/Hero';
-import TrustBar from '@/Components/Apar/TrustBar';
+
 import ProblemSolution from '@/Components/Apar/ProblemSolution';
 import ProductGrid from '@/Components/Apar/ProductGrid';
 import { Link } from '@inertiajs/react';
@@ -13,7 +13,7 @@ export default function AparLanding({ products, testimonis }) {
     return (
         <GuestLayout>
             <Hero />
-            <TrustBar />
+
             <ProblemSolution />
 
             {/* Featured Products Section */}
