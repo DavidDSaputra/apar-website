@@ -15,8 +15,8 @@ const problems = [
     },
     {
         icon: AlertTriangle,
-        title: 'Inspeksi Berkala Wajib',
-        description: 'APAR harus diperiksa dan di-refill secara berkala untuk memastikan fungsi optimal.',
+        title: 'Kesiapan Unit',
+        description: 'Banyak unit APAR lama yang tidak terawat dan tidak siap digunakan saat keadaan darurat.',
     },
 ];
 
@@ -28,13 +28,13 @@ const solutions = [
     },
     {
         icon: Wrench,
-        title: 'Instalasi & Bracket',
-        description: 'Tim profesional untuk pemasangan dan penempatan APAR sesuai standar.',
+        title: 'Media Pemadam Premium',
+        description: 'Menggunakan media pemadam kualitas tinggi yang sangat efektif memadamkan api dengan cepat.',
     },
     {
         icon: Users,
-        title: 'Training Penggunaan',
-        description: 'Pelatihan singkat cara penggunaan APAR yang benar untuk tim Anda.',
+        title: 'Mudah Digunakan',
+        description: 'Desain ergonomis dan instruksi yang jelas memudahkan siapa saja mengoperasikannya.',
     },
 ];
 

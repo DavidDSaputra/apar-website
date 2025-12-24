@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 const quickLinks = [
-    { name: 'Produk', href: '#produk' },
-    { name: 'Layanan', href: '#layanan' },
-    { name: 'Sertifikasi', href: '#sertifikasi' },
-    { name: 'Testimoni', href: '#testimoni' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Kontak', href: '#kontak' },
+    { name: 'Home', href: '/', isAnchor: false },
+    { name: 'Products', href: '/produk', isAnchor: false },
+    { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
+    { name: 'FAQ', href: '/#faq', isAnchor: true },
+    { name: 'Blog', href: '/blog', isAnchor: false },
+    { name: 'Contact', href: '/kontak', isAnchor: false },
 ];
 
 const productLinks = [
@@ -19,71 +20,43 @@ const productLinks = [
     { name: 'Thermatic & Metronic', href: '#produk' },
 ];
 
-export default function Footer() {
-    const handleSmoothScroll = (e, href) => {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
+export default function Footer({ products = [] }) {
+    const handleSmoothScroll = (e, item) => {
+        if (!item.isAnchor) return;
+
+        const anchor = item.href.split('#')[1];
+        const target = document.getElementById(anchor);
+
+        if (window.location.pathname === '/' && target) {
+            e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
+    // Use dynamic products if available, otherwise fallback to static ones
+    const displayProducts = products.length > 0
+        ? products.map(p => ({ name: p.nama_produk, href: '#produk' }))
+        : productLinks;
+
     return (
         <footer className="bg-gray-900 text-white">
-            {/* Map Section */}
-            <div className="w-full h-64">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5121880363977!2d106.68162930910695!3d-6.327610293635491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e584fc0182df%3A0x4df102fa610467ef!2sPT%20JOULWINN%20GELVIS%20HOTAPEA!5e0!3m2!1sid!2sid!4v1765877244832!5m2!1sid!2sid"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Lokasi PT Joulwinn Gelvis Hotapea"
-                />
-            </div>
-
             {/* Main Footer */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {/* Company Info */}
+
                     <div>
-                        <div className="flex items-center gap-2 mb-6">
-                            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center">
+                        <Link href="/" className="flex items-center gap-2 mb-6 group">
+                            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
                                 <span className="text-white font-bold text-lg">J</span>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xl font-bold">JOULWINN</span>
+                                <span className="text-xl font-bold group-hover:text-red-500 transition-colors">JOULWINN</span>
                                 <span className="text-xs text-gray-500">APAR Bersertifikat</span>
                             </div>
-                        </div>
+                        </Link>
                         <p className="text-gray-400 mb-6">
                             PT Joulwinn Gelvis Hotapea - Penyedia APAR berkualitas dengan sertifikasi SNI untuk perlindungan maksimal bisnis Anda.
                         </p>
-                        <div className="flex gap-4">
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Facebook size={18} />
-                            </motion.a>
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Instagram size={18} />
-                            </motion.a>
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Youtube size={18} />
-                            </motion.a>
-                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -92,13 +65,13 @@ export default function Footer() {
                         <ul className="space-y-3">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
+                                    <Link
                                         href={link.href}
-                                        onClick={(e) => handleSmoothScroll(e, link.href)}
+                                        onClick={(e) => handleSmoothScroll(e, link)}
                                         className="text-gray-400 hover:text-white transition-colors"
                                     >
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -108,11 +81,11 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-6">Produk SERVVO</h4>
                         <ul className="space-y-3">
-                            {productLinks.map((link) => (
-                                <li key={link.name}>
+                            {displayProducts.map((link, index) => (
+                                <li key={`${link.name}-${index}`}>
                                     <a
                                         href={link.href}
-                                        onClick={(e) => handleSmoothScroll(e, link.href)}
+                                        onClick={(e) => handleSmoothScroll(e, { ...link, isAnchor: true })}
                                         className="text-gray-400 hover:text-white transition-colors"
                                     >
                                         {link.name}

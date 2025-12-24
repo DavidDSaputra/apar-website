@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -37,7 +38,7 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+            'footerProducts' => Produk::inRandomOrder()->take(6)->get(),
         ];
     }
 }

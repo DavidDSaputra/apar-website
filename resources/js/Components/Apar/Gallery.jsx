@@ -6,42 +6,54 @@ import { X, ChevronLeft, ChevronRight, Building2, Factory, Warehouse, Store } fr
 const galleryItems = [
     {
         id: 1,
-        title: 'Instalasi APAR Gedung Perkantoran',
+        title: 'APAR di Gedung Perkantoran',
         location: 'Jakarta Selatan',
         category: 'Office',
         icon: Building2,
     },
     {
         id: 2,
-        title: 'Pemasangan APAR Pabrik Tekstil',
+        title: 'Unit APAR di Pabrik Tekstil',
         location: 'Tangerang',
         category: 'Factory',
         icon: Factory,
     },
     {
         id: 3,
-        title: 'APAR Gudang Logistik',
+        title: 'APAR di Gudang Logistik',
         location: 'Bekasi',
         category: 'Warehouse',
         icon: Warehouse,
     },
     {
+        id: 'safety',
+        title: 'Fitur Keamanan',
+        icon: BadgeCheck,
+        description: 'Dilengkapi dengan sistem pengaman modern untuk mencegah kebocoran dan aktivasi yang tidak disengaja.',
+        details: [
+            'Safety pin berkualitas',
+            'Sistem nozzle anti-sumbat',
+            'Pressure gauge presisi',
+            'Seal anti-korosi',
+        ],
+    },
+    {
         id: 4,
-        title: 'Instalasi APAR Restoran',
+        title: 'Unit APAR di Restoran',
         location: 'BSD City',
         category: 'Restaurant',
         icon: Store,
     },
     {
         id: 5,
-        title: 'APAR Area Produksi',
+        title: 'APAR di Area Produksi',
         location: 'Cikarang',
         category: 'Factory',
         icon: Factory,
     },
     {
         id: 6,
-        title: 'Instalasi APAR Mall',
+        title: 'Unit APAR di Mall',
         location: 'Jakarta Barat',
         category: 'Commercial',
         icon: Building2,
@@ -79,10 +91,10 @@ export default function Gallery() {
                         Portfolio
                     </span>
                     <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                        Proyek Instalasi Kami
+                        Penempatan Produk Kami
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Berbagai proyek pemasangan dan instalasi APAR yang telah kami selesaikan
+                        Berbagai lokasi yang telah mempercayakan perlindungan aset mereka pada produk APAR kami.
                     </p>
                 </motion.div>
 

@@ -10,8 +10,8 @@ const faqs = [
     },
     {
         id: 2,
-        question: 'Berapa lama sekali APAR harus di-refill?',
-        answer: 'APAR sebaiknya di-refill setiap 1-2 tahun sekali, atau segera setelah digunakan. Selain itu, pengecekan visual bulanan dan inspeksi tahunan oleh teknisi profesional sangat disarankan untuk memastikan APAR berfungsi optimal.',
+        question: 'Bagaimana cara merawat APAR agar tetap awet?',
+        answer: 'Pastikan jarum pada pressure gauge selalu berada di area hijau. Simpan APAR di tempat yang kering, terhindar dari sinar matahari langsung, dan gunakan bracket yang sesuai untuk menggantung unit di ketinggian yang tepat.',
     },
     {
         id: 3,
@@ -20,8 +20,8 @@ const faqs = [
     },
     {
         id: 4,
-        question: 'Apakah tersedia jasa instalasi dan bracket?',
-        answer: 'Tentu! Paket Pro dan Corporate sudah termasuk bracket dan jasa instalasi oleh tim profesional. Kami memastikan penempatan APAR sesuai standar K3 dengan jarak dan ketinggian yang tepat.',
+        question: 'Berapa lama masa berlaku media di dalam APAR?',
+        answer: 'Media pemadam di dalam unit kami memiliki masa berlaku efektif hingga 2 tahun (untuk Powder) atau sesuai label pada unit. Kami menyarankan pemeriksaan tekanan secara rutin untuk memastikan unit tetap dalam kondisi prima.',
     },
     {
         id: 5,
@@ -61,7 +61,7 @@ export default function FAQ() {
                         Pertanyaan yang Sering Diajukan
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Temukan jawaban untuk pertanyaan umum seputar produk dan layanan kami.
+                        Temukan jawaban untuk pertanyaan umum seputar produk APAR kami.
                     </p>
                 </motion.div>
 
