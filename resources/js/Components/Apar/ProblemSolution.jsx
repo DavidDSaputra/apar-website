@@ -28,8 +28,8 @@ const solutions = [
     },
     {
         icon: Wrench,
-        title: 'Kelengkapan Aksesoris',
-        description: 'Setiap pembelian unit sudah termasuk bracket dan aksesoris pemasangan standar.',
+        title: 'Media Pemadam Premium',
+        description: 'Menggunakan media pemadam kualitas tinggi yang sangat efektif memadamkan api dengan cepat.',
     },
     {
         icon: Users,

@@ -20,8 +20,8 @@ const faqs = [
     },
     {
         id: 4,
-        question: 'Apakah pembelian sudah termasuk bracket?',
-        answer: 'Tentu! Setiap unit APAR yang kami jual sudah termasuk bracket standar untuk pemasangan di dinding, sehingga unit Anda siap untuk ditempatkan di area yang strategis.',
+        question: 'Berapa lama masa berlaku media di dalam APAR?',
+        answer: 'Media pemadam di dalam unit kami memiliki masa berlaku efektif hingga 2 tahun (untuk Powder) atau sesuai label pada unit. Kami menyarankan pemeriksaan tekanan secara rutin untuk memastikan unit tetap dalam kondisi prima.',
     },
     {
         id: 5,
