@@ -40,15 +40,15 @@ const certifications = [
         ],
     },
     {
-        id: 'refill',
-        title: 'Layanan Refill',
+        id: 'safety',
+        title: 'Fitur Keamanan',
         icon: BadgeCheck,
-        description: 'Layanan isi ulang APAR dengan media pemadam berkualitas dan proses sesuai standar.',
+        description: 'Dilengkapi dengan sistem pengaman modern untuk mencegah kebocoran dan aktivasi yang tidak disengaja.',
         details: [
-            'Media powder/CO2/foam berkualitas',
-            'Pengecekan seluruh komponen',
-            'Ganti seal & O-ring',
-            'Stiker refill resmi',
+            'Safety pin berkualitas',
+            'Sistem nozzle anti-sumbat',
+            'Pressure gauge presisi',
+            'Seal anti-korosi',
         ],
     },
 ];

@@ -23,8 +23,8 @@ const steps = [
     },
     {
         id: 4,
-        title: 'Pengiriman & Instalasi',
-        description: 'Produk dikirim dengan aman. Tim instalasi siap membantu pemasangan di lokasi',
+        title: 'Pengiriman Produk',
+        description: 'Produk dikirim dengan aman menggunakan armada khusus ke lokasi Anda',
         icon: Truck,
     },
 ];
@@ -55,7 +55,7 @@ export default function HowItWorks() {
                         Cara Pemesanan
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Hanya 4 langkah mudah untuk mendapatkan APAR berkualitas dengan layanan lengkap.
+                        Hanya 4 langkah mudah untuk mendapatkan APAR berkualitas untuk kebutuhan perlindungan Anda.
                     </p>
                 </motion.div>
 
