@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import { Link } from '@inertiajs/react';
 
 const quickLinks = [
@@ -57,29 +57,6 @@ export default function Footer({ products = [] }) {
                         <p className="text-gray-400 mb-6">
                             PT Joulwinn Gelvis Hotapea - Penyedia APAR berkualitas dengan sertifikasi SNI untuk perlindungan maksimal bisnis Anda.
                         </p>
-                        <div className="flex gap-4">
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Facebook size={18} />
-                            </motion.a>
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Instagram size={18} />
-                            </motion.a>
-                            <motion.a
-                                href="#"
-                                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Youtube size={18} />
-                            </motion.a>
-                        </div>
                     </div>
 
                     {/* Quick Links */}
