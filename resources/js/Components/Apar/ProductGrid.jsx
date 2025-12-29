@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MessageCircle, ChevronRight, ImageIcon, ExternalLink } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 
 export default function ProductGrid({ dynamicProducts = [] }) {
+    const { appUrl } = usePage().props;
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
 
@@ -51,7 +52,7 @@ export default function ProductGrid({ dynamicProducts = [] }) {
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                                         <Link
-                                            href={`/produk/${product.slug}`}
+                                            href={`${appUrl}/produk/${product.slug}`}
                                             className="w-full py-3 bg-white text-gray-900 rounded-xl font-bold flex items-center justify-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                                         >
                                             Lihat Detail <ChevronRight size={18} />
@@ -62,7 +63,7 @@ export default function ProductGrid({ dynamicProducts = [] }) {
                                 {/* Content Section */}
                                 <div className="p-8 flex flex-col flex-1">
                                     <div className="flex-1">
-                                        <Link href={`/produk/${product.slug}`}>
+                                        <Link href={`${appUrl}/produk/${product.slug}`}>
                                             <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
                                                 {product.nama_produk}
                                             </h3>
@@ -84,7 +85,7 @@ export default function ProductGrid({ dynamicProducts = [] }) {
                                             <span>Hubungi Kami</span>
                                         </a>
                                         <Link
-                                            href={`/produk/${product.slug}`}
+                                            href={`${appUrl}/produk/${product.slug}`}
                                             className="p-3 border border-gray-200 hover:border-red-600 hover:text-red-600 rounded-xl transition-all"
                                             title="Detail Produk"
                                         >

@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, Calendar, User, Eye, ArrowLeft, Share2 } from 'lucide-react';
-import { Link, Head } from '@inertiajs/react';
+import { Link, Head, usePage } from '@inertiajs/react';
 import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function Show({ post, related }) {
+    const { appUrl } = usePage().props;
     const formattedDate = new Date(post.created_at).toLocaleDateString('id-ID', {
         day: 'numeric',
         month: 'long',
@@ -22,11 +23,11 @@ export default function Show({ post, related }) {
                 {/* Breadcrumbs */}
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
-                        <Link href="/" className="hover:text-red-600 transition-colors flex items-center gap-1">
+                        <Link href={appUrl} className="hover:text-red-600 transition-colors flex items-center gap-1">
                             <Home size={14} /> Beranda
                         </Link>
                         <ChevronRight size={14} />
-                        <Link href="/blog" className="hover:text-red-600 transition-colors">
+                        <Link href={`${appUrl}/blog`} className="hover:text-red-600 transition-colors">
                             Blog
                         </Link>
                         <ChevronRight size={14} />
@@ -93,7 +94,7 @@ export default function Show({ post, related }) {
                     {/* Footer / Share */}
                     <div className="border-t border-gray-100 pt-10 mb-20 flex flex-col sm:flex-row items-center justify-between gap-6">
                         <Link
-                            href="/blog"
+                            href={`${appUrl}/blog`}
                             className="flex items-center gap-2 text-gray-600 hover:text-red-600 font-bold transition-colors"
                         >
                             <ArrowLeft size={18} /> Kembali ke Blog
@@ -119,7 +120,7 @@ export default function Show({ post, related }) {
                                     <h2 className="text-3xl font-bold text-gray-900">Artikel Terkait</h2>
                                     <div className="h-1.5 w-20 bg-red-600 rounded-full mt-4"></div>
                                 </div>
-                                <Link href="/blog" className="text-red-600 font-bold hover:underline mb-1">
+                                <Link href={`${appUrl}/blog`} className="text-red-600 font-bold hover:underline mb-1">
                                     Lihat Semua
                                 </Link>
                             </div>
@@ -128,7 +129,7 @@ export default function Show({ post, related }) {
                                 {related.map((item) => (
                                     <Link
                                         key={item.id}
-                                        href={`/blog/${item.slug}`}
+                                        href={`${appUrl}/blog/${item.slug}`}
                                         className="bg-white rounded-[2rem] p-6 shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 overflow-hidden"
                                     >
                                         <div className="aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-100">

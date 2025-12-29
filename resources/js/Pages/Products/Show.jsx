@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, MessageCircle, ImageIcon, ExternalLink } from 'lucide-react';
-import { Link, Head } from '@inertiajs/react';
+import { Link, Head, usePage } from '@inertiajs/react';
 import GuestLayout from '@/Layouts/GuestLayout';
 
 import { useState } from 'react';
 
 export default function Show({ product, relatedProducts = [] }) {
+    const { appUrl } = usePage().props;
     const [activeImage, setActiveImage] = useState(product.gambar_utama);
     return (
         <GuestLayout>
@@ -15,11 +16,11 @@ export default function Show({ product, relatedProducts = [] }) {
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
-                        <Link href="/" className="hover:text-red-600 transition-colors flex items-center gap-1">
+                        <Link href={appUrl} className="hover:text-red-600 transition-colors flex items-center gap-1">
                             <Home size={14} /> Beranda
                         </Link>
                         <ChevronRight size={14} />
-                        <Link href="/produk" className="hover:text-red-600 transition-colors">
+                        <Link href={`${appUrl}/produk`} className="hover:text-red-600 transition-colors">
                             Produk
                         </Link>
                         <ChevronRight size={14} />
@@ -118,7 +119,7 @@ export default function Show({ product, relatedProducts = [] }) {
                                     <div className="h-1.5 w-20 bg-red-600 rounded-full mt-4"></div>
                                 </div>
                                 <Link
-                                    href="/produk"
+                                    href={`${appUrl}/produk`}
                                     className="text-red-600 font-bold hover:translate-x-1 transition-transform flex items-center gap-2"
                                 >
                                     Lihat Semua <ChevronRight size={20} />
@@ -132,7 +133,7 @@ export default function Show({ product, relatedProducts = [] }) {
                                         whileHover={{ y: -5 }}
                                         className="bg-white rounded-[2rem] p-4 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group"
                                     >
-                                        <Link href={`/produk/${item.slug}`}>
+                                        <Link href={`${appUrl}/produk/${item.slug}`}>
                                             <div className="aspect-square bg-gray-50 rounded-2xl overflow-hidden mb-5">
                                                 {item.gambar_utama ? (
                                                     <img
@@ -155,7 +156,7 @@ export default function Show({ product, relatedProducts = [] }) {
                                                 Tersedia
                                             </div>
                                             <Link
-                                                href={`/produk/${item.slug}`}
+                                                href={`${appUrl}/produk/${item.slug}`}
                                                 className="p-2 bg-gray-50 text-gray-400 group-hover:bg-red-50 group-hover:text-red-600 rounded-xl transition-colors"
                                             >
                                                 <ExternalLink size={18} />

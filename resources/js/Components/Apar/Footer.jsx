@@ -1,15 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
-import { Link } from '@inertiajs/react';
-
-const quickLinks = [
-    { name: 'Home', href: '/', isAnchor: false },
-    { name: 'Products', href: '/produk', isAnchor: false },
-    { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
-    { name: 'FAQ', href: '/#faq', isAnchor: true },
-    { name: 'Blog', href: '/blog', isAnchor: false },
-    { name: 'Contact', href: '/kontak', isAnchor: false },
-];
+import { Link, usePage } from '@inertiajs/react';
 
 const productLinks = [
     { name: 'Dry Chemical Powder', href: '#produk' },
@@ -21,6 +12,16 @@ const productLinks = [
 ];
 
 export default function Footer({ products = [] }) {
+    const { appUrl } = usePage().props;
+
+    const quickLinks = [
+        { name: 'Home', href: `${appUrl}`, isAnchor: false },
+        { name: 'Products', href: `${appUrl}/produk`, isAnchor: false },
+        { name: 'Testimoni', href: `${appUrl}/#testimoni`, isAnchor: true },
+        { name: 'FAQ', href: `${appUrl}/#faq`, isAnchor: true },
+        { name: 'Blog', href: `${appUrl}/blog`, isAnchor: false },
+        { name: 'Contact', href: `${appUrl}/kontak`, isAnchor: false },
+    ];
     const handleSmoothScroll = (e, item) => {
         if (!item.isAnchor) return;
 
@@ -45,7 +46,7 @@ export default function Footer({ products = [] }) {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
                     <div>
-                        <Link href="/" className="flex items-center gap-2 mb-6 group">
+                        <Link href={appUrl} className="flex items-center gap-2 mb-6 group">
                             <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
                                 <span className="text-white font-bold text-lg">J</span>
                             </div>

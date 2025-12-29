@@ -2,7 +2,7 @@ import Hero from '@/Components/Apar/Hero';
 
 import ProblemSolution from '@/Components/Apar/ProblemSolution';
 import ProductGrid from '@/Components/Apar/ProductGrid';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import Testimonials from '@/Components/Apar/Testimonials';
 import BlogPreview from '@/Components/Apar/BlogPreview';
@@ -10,6 +10,8 @@ import FAQ from '@/Components/Apar/FAQ';
 import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function AparLanding({ products, testimonis }) {
+    const { appUrl } = usePage().props;
+
     return (
         <GuestLayout>
             <Hero />
@@ -22,7 +24,7 @@ export default function AparLanding({ products, testimonis }) {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center">
                     <Link
-                        href="/produk"
+                        href={`${appUrl}/produk`}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-red-600 text-red-600 font-bold rounded-2xl hover:bg-red-600 hover:text-white transition-all duration-300 shadow-lg shadow-red-100 group"
                     >
                         <span>Lihat Semua Produk</span>

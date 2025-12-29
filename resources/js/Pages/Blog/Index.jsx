@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, Home, Calendar, User, Eye, ArrowRight } from 'lucide-react';
-import { Link, Head } from '@inertiajs/react';
+import { Link, Head, usePage } from '@inertiajs/react';
 import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function Index({ posts }) {
+    const { appUrl } = usePage().props;
     return (
         <GuestLayout>
             <Head title="Blog & Artikel - APAR Bersertifikat" />
@@ -12,7 +13,7 @@ export default function Index({ posts }) {
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <nav className="flex items-center gap-2 text-sm text-gray-500">
-                        <Link href="/" className="hover:text-red-600 transition-colors flex items-center gap-1">
+                        <Link href={appUrl} className="hover:text-red-600 transition-colors flex items-center gap-1">
                             <Home size={14} /> Beranda
                         </Link>
                         <ChevronRight size={14} />
@@ -49,7 +50,7 @@ export default function Index({ posts }) {
                                     className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group"
                                 >
                                     {/* Image Section */}
-                                    <Link href={`/blog/${post.slug}`} className="aspect-[16/9] relative overflow-hidden bg-gray-100 block">
+                                    <Link href={`${appUrl}/blog/${post.slug}`} className="aspect-[16/9] relative overflow-hidden bg-gray-100 block">
                                         {post.gambar_featured ? (
                                             <img
                                                 src={`/storage/${post.gambar_featured}`}
@@ -79,7 +80,7 @@ export default function Index({ posts }) {
                                             </span>
                                         </div>
 
-                                        <Link href={`/blog/${post.slug}`}>
+                                        <Link href={`${appUrl}/blog/${post.slug}`}>
                                             <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-snug">
                                                 {post.judul}
                                             </h2>
@@ -90,7 +91,7 @@ export default function Index({ posts }) {
                                         </p>
 
                                         <Link
-                                            href={`/blog/${post.slug}`}
+                                            href={`${appUrl}/blog/${post.slug}`}
                                             className="flex items-center gap-2 text-red-600 font-bold text-sm hover:gap-3 transition-all"
                                         >
                                             Baca Selengkapnya <ArrowRight size={16} />
@@ -114,7 +115,7 @@ export default function Index({ posts }) {
                                 {[...Array(posts.last_page)].map((_, i) => (
                                     <Link
                                         key={i}
-                                        href={`/blog?page=${i + 1}`}
+                                        href={`${appUrl}/blog?page=${i + 1}`}
                                         className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all ${posts.current_page === i + 1
                                             ? 'bg-red-600 text-white shadow-lg shadow-red-200'
                                             : 'bg-white text-gray-600 hover:bg-gray-100'

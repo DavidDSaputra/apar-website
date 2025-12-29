@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
-import { Link } from '@inertiajs/react';
-
-const menuItems = [
-    { name: 'Home', href: '/', isAnchor: false },
-    { name: 'Products', href: '/produk', isAnchor: false },
-    { name: 'Testimoni', href: '/#testimoni', isAnchor: true },
-    { name: 'FAQ', href: '/#faq', isAnchor: true },
-    { name: 'Blog', href: '/blog', isAnchor: false },
-    { name: 'Contact', href: '/kontak', isAnchor: false },
-];
+import { Link, usePage } from '@inertiajs/react';
 
 export default function Navbar() {
+    const { appUrl } = usePage().props;
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const menuItems = [
+        { name: 'Home', href: `${appUrl}`, isAnchor: false },
+        { name: 'Products', href: `${appUrl}/produk`, isAnchor: false },
+        { name: 'Testimoni', href: `${appUrl}/#testimoni`, isAnchor: true },
+        { name: 'FAQ', href: `${appUrl}/#faq`, isAnchor: true },
+        { name: 'Blog', href: `${appUrl}/blog`, isAnchor: false },
+        { name: 'Contact', href: `${appUrl}/kontak`, isAnchor: false },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,7 +52,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link
-                        href="/"
+                        href={appUrl}
                         className="flex items-center gap-2 group"
                     >
                         <motion.div
