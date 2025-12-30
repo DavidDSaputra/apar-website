@@ -9,9 +9,8 @@ import BlogPreview from '@/Components/Apar/BlogPreview';
 import FAQ from '@/Components/Apar/FAQ';
 import GuestLayout from '@/Layouts/GuestLayout';
 
-export default function AparLanding({ products, testimonis }) {
+export default function AparLanding({ products, testimonis, articles }) {
     const { appUrl } = usePage().props;
-
     return (
         <GuestLayout>
             <Hero />
@@ -34,7 +33,7 @@ export default function AparLanding({ products, testimonis }) {
             </div>
 
             <Testimonials testimonis={testimonis} />
-            <BlogPreview />
+            <BlogPreview articles={articles} />
             <FAQ />
         </GuestLayout>
     );

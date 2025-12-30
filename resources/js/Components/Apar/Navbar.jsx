@@ -55,18 +55,12 @@ export default function Navbar() {
                         href={appUrl}
                         className="flex items-center gap-2 group"
                     >
-                        <motion.div
-                            className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform"
-                            whileHover={{ rotate: 5 }}
-                        >
-                            <span className="text-white font-bold text-lg">J</span>
-                        </motion.div>
-                        <div className="flex flex-col">
-                            <span className="text-lg font-bold text-gray-900 leading-tight group-hover:text-red-600 transition-colors">
-                                JOULWINN
-                            </span>
-                            <span className="text-xs text-gray-500 -mt-0.5">APAR Bersertifikat</span>
-                        </div>
+                        <motion.img
+                            src="/images/joulwinn-logo.png"
+                            alt="Joulwinn - APAR Bersertifikat"
+                            className="h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+                            whileHover={{ scale: 1.05 }}
+                        />
                     </Link>
 
                     {/* Desktop Menu */}

@@ -29,19 +29,20 @@ export default function LoadingScreen() {
                         transition={{ duration: 0.5 }}
                         className="mb-8"
                     >
-                        <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-500 rounded-2xl flex items-center justify-center shadow-xl shadow-red-500/30">
-                            <span className="text-white font-bold text-3xl">J</span>
-                        </div>
+                        <img
+                            src="/images/joulwinn-logo.png"
+                            alt="Joulwinn Logo"
+                            className="h-24 w-auto object-contain"
+                        />
                     </motion.div>
 
-                    {/* Brand name */}
+                    {/* Brand tagline */}
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                         className="text-center mb-8"
                     >
-                        <h1 className="text-2xl font-bold text-gray-900">JOULWINN</h1>
                         <p className="text-gray-500 text-sm">APAR Bersertifikat</p>
                     </motion.div>
 

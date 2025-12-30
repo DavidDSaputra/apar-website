@@ -8,6 +8,7 @@ use App\Models\Produk;
 use App\Models\Artikel;
 
 use App\Models\Testimoni;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,10 @@ class HomeController extends Controller
         // Get latest testimonials
         $testimonials = Testimoni::latest()->take(6)->get();
 
-        return view('pilates', compact('featured', 'products', 'latestArticles', 'testimonials'));
+        return Inertia::render('AparLanding', [
+            'products' => $products,
+            'testimonis' => $testimonials,
+            'articles' => $latestArticles
+        ]);
     }
 }
