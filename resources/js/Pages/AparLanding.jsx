@@ -1,3 +1,4 @@
+import React from 'react';
 import Hero from '@/Components/Apar/Hero';
 
 import ProblemSolution from '@/Components/Apar/ProblemSolution';
@@ -11,6 +12,7 @@ import GuestLayout from '@/Layouts/GuestLayout';
 
 export default function AparLanding({ products, testimonis, articles }) {
     const { appUrl } = usePage().props;
+
     return (
         <GuestLayout>
             <Hero />

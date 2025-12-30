@@ -41,7 +41,7 @@ export default function ProductGrid({ dynamicProducts = [] }) {
                                 <div className="aspect-[4/3] relative overflow-hidden bg-gray-100">
                                     {product.gambar_utama ? (
                                         <img
-                                            src={`/storage/${product.gambar_utama}`}
+                                            src={product.gambar_utama.startsWith('http') ? product.gambar_utama : `/storage/${product.gambar_utama}`}
                                             alt={product.nama_produk}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                         />
